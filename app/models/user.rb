@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :type, presence: true, on: :update
   validates :type, inclusion: { in: TYPES }, on: :update
+
 end
