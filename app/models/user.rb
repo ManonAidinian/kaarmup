@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   TYPES = ["Company", "Charity"]
 
-  validates :email, :password, :first_name, :last_name, :type, presence: true
-  validates :email, uniqueness: true
-  validates :type, inclusion: { in: TYPES }
+  validates :first_name, :last_name, :type, presence: true, on: :update
+  validates :type, inclusion: { in: TYPES }, on: :update
 end
