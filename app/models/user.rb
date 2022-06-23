@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :type, presence: true, on: :update
   validates :type, inclusion: { in: TYPES }, on: :update
 
+  has_many :charities, dependent: :destroy
+  has_many :companies, dependent: :destroy
 end
