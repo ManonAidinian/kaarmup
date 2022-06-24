@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 25px auto;
+  max-width: 1100px;
+}
+
+
+.head-text-and-cta {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
