@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_133835) do
+ActiveRecord::Schema.define(version: 2022_06_23_134056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "charities", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "category"
     t.string "location"
     t.bigint "user_id", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_133835) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "location"
     t.integer "total_karma_points"
     t.bigint "user_id", null: false
@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 2022_06_23_133835) do
   end
 
   create_table "good_actions", force: :cascade do |t|
-    t.string "company", null: false
+    t.bigint "company_id", null: false
     t.bigint "need_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_good_actions_on_company_id"
     t.index ["need_id"], name: "index_good_actions_on_need_id"
   end
 
@@ -65,12 +66,16 @@ ActiveRecord::Schema.define(version: 2022_06_23_133835) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "charities", "users"
   add_foreign_key "companies", "users"
+  add_foreign_key "good_actions", "companies"
   add_foreign_key "good_actions", "needs"
   add_foreign_key "needs", "charities"
 end
