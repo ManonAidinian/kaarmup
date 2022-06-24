@@ -4,4 +4,5 @@ class Company < ApplicationRecord
   has_many :needs, through: :good_actions
 
   validates :name, :location, presence: true
+  has_one_attached :photo
 end

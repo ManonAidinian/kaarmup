@@ -7,4 +7,6 @@ class Need < ApplicationRecord
 
   validates :title, :category, :karma_points, presence: true
   validates :category, inclusion: { in: NEED_CATEGORIES }
+
+  has_many_attached :photos
 end
