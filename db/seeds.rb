@@ -7,11 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+User.destroy_all
 Charity.destroy_all
 Company.destroy_all
 Need.destroy_all
 
-user1 = User.new(email: "u1@mail.com", password: "123123")
+user1 = User.create(email: "user1@gmail.com", password: "123123")
 
 
 10.times do
@@ -35,5 +36,6 @@ user1 = User.new(email: "u1@mail.com", password: "123123")
   end
 end
 
+p User.count
 p Charity.count
 p Need.count

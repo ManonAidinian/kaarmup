@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="head">
+  <div class="head-text-and-cta">
+    <h1>KAARMUP</h1>
+    <p>Answer NGOs needs and get karma points for your company!</p>
+
+    <%= link_to "Find a charity project to support", charities_path %>
+  </div>
+
+  <div class="head-illu">
+    <%= image_tag ("home_header.svg"), style: "width:100%" %>
+  </div>
+</div>

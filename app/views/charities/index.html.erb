@@ -1,0 +1,5 @@
+<% @charities.each do |charity| %>
+  <p><%= link_to charity.name, charity_path(charity)%>
+  <%= charity.description %>
+  <%= charity.location %></p>
+<% end  %>
