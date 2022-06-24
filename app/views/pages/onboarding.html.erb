@@ -3,11 +3,11 @@
 
 <h2>Get on board!</h2>
 
-<%= simple_form_for(@user) do |f| %>
+<%= simple_form_for(current_user) do |f| %>
     <%= f.input :first_name%>
     <%= f.input :last_name%>
-    <%= f.input :type%>
-
+    <%= f.label 'Are you representing a company or a charity?'%>
+    <%= f.input :type, collection: ["Company", "Charity"], label: false %>
     <%= f.submit%>
   <%end%>
 </div>
