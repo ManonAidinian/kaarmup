@@ -1,1 +1,13 @@
-<h1>This is an onboarding page</h1>
+
+<div class="container">
+
+<h2>Get on board!</h2>
+
+<%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name%>
+    <%= f.input :last_name%>
+    <%= f.input :type%>
+
+    <%= f.submit%>
+  <%end%>
+</div>
