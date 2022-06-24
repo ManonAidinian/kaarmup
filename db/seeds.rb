@@ -13,6 +13,8 @@ Company.destroy_all
 Need.destroy_all
 
 user1 = User.create(email: "user1@gmail.com", password: "123123")
+file = File.open(Rails.root.join("app/assets/images/manon-avatar.jpg"))
+user1.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/jpg')
 
 
 10.times do
