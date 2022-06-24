@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2022_06_23_134056) do
     t.text "description"
     t.string "category"
     t.string "location"
-    t.bigint "user_id", null: false
+    t.bigint "user_id
+    ", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_charities_on_user_id"
