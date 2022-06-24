@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :charities, only: [:index, :show] do
     resources :needs
   end
+  get '/dashboard', to: 'pages#dashboard'
+  get '/onboarding', to: 'pages#onboarding'
 end
