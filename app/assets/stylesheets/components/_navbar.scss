@@ -17,7 +17,6 @@
   font-size: 27px;
   color: white;
   font-weight: 500;
-  margin-left: 25px;
   transition: 0.2s;
 }
 
@@ -36,4 +35,9 @@
 .navbar-light .navbar-nav .nav-link:hover {
   font-size: 18px;
   font-weight: 500;
+}
+
+.container-fluid {
+  margin: auto 25px;
+  height: 100px;
 }
