@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  TYPES = ["Company", "Charity"]
+  USER_TYPES = ["Company", "Charity"]
 
-  validates :first_name, :last_name, :type, presence: true, on: :update
-  validates :type, inclusion: { in: TYPES }, on: :update
+  validates :first_name, :last_name, :user_type, presence: true, on: :update
+  validates :user_type, inclusion: { in: USER_TYPES }, on: :update
 
   has_many :charities, dependent: :destroy
   has_many :companies, dependent: :destroy
