@@ -7,6 +7,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:update]
   get '/dashboard', to: 'pages#dashboard'
-  get '/users/:id', to: 'pages#dashboard'
   get '/onboarding', to: 'pages#onboarding'
 end

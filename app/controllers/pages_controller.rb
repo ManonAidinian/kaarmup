@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :check_user_onboarded, only: :onboarding
+
   def home
   end
 

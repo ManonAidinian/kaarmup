@@ -12,4 +12,8 @@ class User < ApplicationRecord
   has_many :charities, dependent: :destroy
   has_many :companies, dependent: :destroy
   has_one_attached :photo
+
+  def onboarded?
+    first_name.present? && last_name.present? && user_type.present?
+  end
 end
