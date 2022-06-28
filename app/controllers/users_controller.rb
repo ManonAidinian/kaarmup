@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+  skip_before_action :check_user_onboarded
+
   def update
     if current_user.update(user_params)
       redirect_to dashboard_path
     else
-      redirect_back(fallback_location: onboarding_path)
+      # redirect_back(fallback_location: onboarding_path)
+      render "pages/onboarding"
     end
   end
 
