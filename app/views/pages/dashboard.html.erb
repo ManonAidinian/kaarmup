@@ -1,2 +1,8 @@
-<h1>This is the dashboard of <%=current_user.email%> </h1>
-<h1>This is the dashboard of <%=current_user.first_name%> </h1>
+<div class="dashboard d-flex">
+
+  <%= render "shared/sidebar" %>
+
+  <div class="tabs-box">
+    <p>dashboard content</p>
+  </div>
+</div>
