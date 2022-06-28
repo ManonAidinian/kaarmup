@@ -10,3 +10,9 @@
     <%= image_tag ("home_header.svg"), style: "width:100%" %>
   </div>
 </div>
+
+<%# ----------------test image broken--------------------- %>
+
+<%if user_signed_in?%>
+  <%= cl_image_tag current_user.photo.key, height: 150, width: 200, crop: :fill%>
+<%end%>
