@@ -1,0 +1,14 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: $bg;
+  height: 100vh;
+  padding: 25px;
+}
+
+.tabs-box {
+  background-color: white;
+}
