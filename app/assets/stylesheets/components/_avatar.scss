@@ -3,6 +3,8 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: white 1px solid;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .avatar-large {
   width: 56px;
@@ -16,6 +18,8 @@
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
+  border: white 1px solid;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .avatar-bordered {

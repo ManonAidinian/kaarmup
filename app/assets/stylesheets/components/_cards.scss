@@ -1,0 +1,20 @@
+.dashboard-main-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 9px;
+  margin: 5px 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.dashboard-main-card-img {
+  border-radius: 9px 0px 0px 9px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.dashboard-main-card-infos {
+  padding: 25px;
+}

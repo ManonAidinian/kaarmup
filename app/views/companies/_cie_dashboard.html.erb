@@ -1,6 +1,12 @@
 <%current_user.companies.each do |cie|%>
-  <%= cl_image_tag cie.photo.key, height: 300, width: 400, crop: :fill %>
-  <p><%=cie.name%></p>
-  <p><%=cie.description%></p>
-  <p><%=cie.location%></p>
+  <div class="dashboard-main-card">
+    <div class="dashboard-main-card-img">
+      <%= cl_image_tag cie.photo.key, class: "dashboard-main-card-img"%>
+    </div>
+    <div class="dashboard-main-card-infos">
+      <p><%=cie.name%></p>
+      <p><%=cie.description%></p>
+      <p><%=cie.location%></p>
+    </div>
+  </div>
 <% end %>
