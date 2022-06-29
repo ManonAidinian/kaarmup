@@ -1,3 +1,17 @@
-  <p><%= @charity.name%>
-  <%= @charity.description %>
-  <%= @charity.location %></p>
+<div class="show-cards-box">
+  <div class="show-card">
+    <div class="show-card-img">
+      <% if @charity.photo.attached?%>
+        <%= cl_image_tag @charity.photo.key, class: "index-card-img"%>
+      <% else %>
+        <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "index-card-img"%>
+      <% end %>
+    </div>
+    <div class="show-card-infos">
+      <h4><%= @charity.name%></h4>
+      <p><%= @charity.description %></p>
+      <p><%= @charity.category %></p>
+      <p><%= @charity.location %></p>
+    </div>
+  </div>
+</div>
