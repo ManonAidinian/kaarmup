@@ -1,6 +1,6 @@
 <%current_user.charities.each do |cha|%>
   <div class="dashboard-main-card">
-    <div class="dashboard-main-card-img">
+    <div>
       <%= cl_image_tag cha.photo.key, class: "dashboard-main-card-img" %>
     </div>
     <div class="dashboard-main-card-infos">
