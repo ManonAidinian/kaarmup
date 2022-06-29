@@ -4,7 +4,7 @@
     <%if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "avatar-dashboard"%>
     <% else %>
-      <%= cl_image_tag "#", class: "avatar-dashboard" %>
+      <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/avatar-unisex_uk1zur.png", class: "avatar-dashboard" %>
     <% end %>
   </div>
 
