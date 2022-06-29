@@ -1,9 +1,10 @@
 <div class="container">
 
-  <h2>Register a new company:</h2>
-  <%= simple_form_for(@company) do |f| %>
+  <h2>Register a new charity:</h2>
+  <%= simple_form_for(@charity) do |f| %>
       <%= f.input :name%>
       <%= f.input :description%>
+      <%= f.input :category%>
       <%= f.input :location%>
       <%= f.input :photo, as: :file %>
       <%= f.submit%>

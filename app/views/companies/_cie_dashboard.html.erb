@@ -1,0 +1,6 @@
+<%current_user.companies.each do |cie|%>
+  <%= cl_image_tag cie.photo.key, height: 300, width: 400, crop: :fill %>
+  <p><%=cie.name%></p>
+  <p><%=cie.description%></p>
+  <p><%=cie.location%></p>
+<% end %>

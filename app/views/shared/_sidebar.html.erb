@@ -14,7 +14,11 @@
   </div>
 
   <div class="dashboard-menu">
-    <p><%= link_to "Create a #{current_user.user_type}", new_company_path %></p>
+    <%if current_user.user_type == "Company"  %>
+      <p><%= link_to "Create a #{current_user.user_type}", new_company_path %></p>
+    <% elsif current_user.user_type == "Charity" %>
+      <p><%= link_to "Create a #{current_user.user_type}", new_charity_path %></p>
+    <% end %>
     <p><%= link_to "Edit my profile", "#" %></p>
   </div>
 
