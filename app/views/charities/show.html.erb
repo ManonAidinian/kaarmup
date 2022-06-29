@@ -16,6 +16,13 @@
     </div>
   </div>
   <div class="needs-box">
-    <p><%= @charity.needs.first.title %> </p>
+    <p>We need:</p>
+    <% @charity.needs.each do |need| %>
+      <p><%= need.title %>
+      <%= need.description %>
+      <%= need.category %>
+      <%= need.karma_points %> KP</p>
+      <%= need.status %>
+    <% end %>
   </div>
 </div>

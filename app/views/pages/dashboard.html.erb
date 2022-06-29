@@ -6,10 +6,10 @@
 
     <% if current_user.user_type == "Company" %>
       <h3>My companies:</h3>
-      <%= render "companies/cie_dashboard" %>
+      <%= render "companies/company_dashboard" %>
     <% elsif current_user.user_type == "Charity" %>
       <h3>My charities:</h3>
-      <%= render "charities/cha_dashboard" %>
+      <%= render "charities/charity_dashboard" %>
     <% end %>
 
   </div>

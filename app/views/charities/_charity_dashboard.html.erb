@@ -1,0 +1,25 @@
+<%current_user.charities.each do |charity|%>
+  <div class="dashboard-main-card">
+    <div>
+      <%= cl_image_tag charity.photo.key, class: "dashboard-main-card-img" %>
+    </div>
+    <div class="dashboard-main-card-infos">
+      <h4><%=charity.name%></h4>
+      <p><%=charity.description%></p>
+      <p><%=charity.category%></p>
+      <p><%=charity.location%></p>
+    </div>
+    <div class="needs-box">
+    <p>We need:</p>
+    <% charity.needs.each do |need| %>
+      <p><%= need.title %>
+      <%= need.description %>
+      <%= need.category %>
+      <%= need.karma_points %> KP</p>
+    <% end %>
+  </div>
+    <div>
+    <%= link_to "Add a need", new_charity_need_path(charity.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

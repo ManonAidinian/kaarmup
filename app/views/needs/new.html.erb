@@ -1,0 +1,12 @@
+<div class="container">
+
+  <h2>Submit a new need:</h2>
+  <%= simple_form_for(@need) do |f| %>
+      <%= f.input :title%>
+      <%= f.input :description%>
+      <%= f.input :category%>
+      <%= f.input :karma_points%>
+      <%= f.button :submit, "Save my new need"%>
+    <%end%>
+
+</div>

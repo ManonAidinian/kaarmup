@@ -16,6 +16,10 @@
         <p><%= charity.description %></p>
         <p><%= charity.category %></p>
         <p><%= charity.location %></p>
+        We need :
+        <% charity.needs.each do |need| %>
+          <%= need.category %>
+        <% end %>
       </div>
     </div>
   <% end  %>
