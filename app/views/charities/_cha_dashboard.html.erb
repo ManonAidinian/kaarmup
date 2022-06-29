@@ -1,7 +1,0 @@
-<%current_user.charities.each do |cha|%>
-  <%= cl_image_tag cha.photo.key, height: 300, width: 400, crop: :fill %>
-  <p><%=cha.name%></p>
-  <p><%=cha.description%></p>
-  <p><%=cha.category%></p>
-  <p><%=cha.location%></p>
-<% end %>

@@ -1,0 +1,12 @@
+<%current_user.companies.each do |company|%>
+  <div class="dashboard-main-card">
+    <div>
+      <%= cl_image_tag company.photo.key, class: "dashboard-main-card-img"%>
+    </div>
+    <div class="dashboard-main-card-infos">
+      <p><%=company.name%></p>
+      <p><%=company.description%></p>
+      <p><%=company.location%></p>
+    </div>
+  </div>
+<% end %>
