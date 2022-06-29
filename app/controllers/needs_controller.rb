@@ -1,6 +1,7 @@
 class NeedsController < ApplicationController
   def new
     @need = Need.new
+    @charity = Charity.find(params[:charity_id])
   end
 
   def create
@@ -8,7 +9,7 @@ class NeedsController < ApplicationController
     @need.charity = Charity.find(params[:charity_id])
     @charity = @need.charity
     if @need.save
-      redirect_to charity_path(@charity)
+      redirect_to charity_path(@charity.id)
     else
       render :new
     end
