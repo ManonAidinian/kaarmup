@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
+require "json"
+require "open-uri"
 
 User.destroy_all
 Charity.destroy_all
@@ -17,7 +19,7 @@ file = File.open(Rails.root.join("app/assets/images/manon-avatar.jpg"))
 user1.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/jpg')
 
 
-10.times do
+5.times do
   user = User.new(email: Faker::Internet.email, password: "123123")
   user.save!
   charity = Charity.new(
@@ -27,7 +29,7 @@ user1.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images
   user_id: user.id
   )
   charity.save!
-  5.times do
+  3.times do
     need = Need.new(
     title: Faker::Lorem.sentence(word_count: 3),
     karma_points: rand(1..50),
@@ -42,5 +44,8 @@ p User.count
 p Charity.count
 p Need.count
 
-
 url = "https://api.globalgiving.org/api/public/orgservice/all/organizations/active?api_key=41f6ec06-2b65-41a7-b0c2-c5f7e1e36924"
+organizations_serialized = URI.open(url, Accept: "application/json", Content_type: "application/json").read
+organization = JSON.parse(organizations_serialized)
+
+puts organizations
