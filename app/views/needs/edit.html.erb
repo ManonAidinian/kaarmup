@@ -4,7 +4,7 @@
   <%= simple_form_for(@need) do |f| %>
       <%= f.input :title%>
       <%= f.input :description%>
-      <%= f.input :category, collection: Need::NEED_CATEGORIES %>
+      <%= f.input :category%>
       <%= f.input :karma_points%>
       <%= f.button :submit, "Update my need"%>
     <%end%>

@@ -21,9 +21,10 @@ file = File.open(Rails.root.join("app/assets/images/marypo-avatar.jpg"))
 charity_user.photo.attach(io: file, filename: "marypo-avatar.jpg", content_type: 'images/jpg')
 
 charity1 = Charity.new(
-  name: "Save Lola",
+  name: "Family hunt",
   location: "Bali",
   description: "Let's find a new family for Lola",
+  category: "Animal rescue",
   user_id: charity_user.id
 )
 charity1.save!
@@ -31,9 +32,9 @@ file = File.open(Rails.root.join("app/assets/images/lola.jpg"))
 charity1.photo.attach(io: file, filename: "lola.jpg", content_type: 'images/jpg')
 
 need1 = Need.new(
-  title: "Need a new family",
+  title: "Adoption family",
   karma_points: 37,
-  category: "Animal rescue",
+  category: "Animal adoption",
   charity_id: charity1.id
 )
 need1.save!
