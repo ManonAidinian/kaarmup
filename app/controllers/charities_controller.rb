@@ -34,6 +34,12 @@ class CharitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @charity = Charity.find(params[:id])
+    @charity.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def charity_params

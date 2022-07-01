@@ -28,6 +28,12 @@ class NeedsController < ApplicationController
     end
   end
 
+  def destroy
+    @need = Need.find(params[:id])
+    @need.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def need_params
