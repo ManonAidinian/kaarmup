@@ -4,6 +4,13 @@
     <p>Answer NGOs needs and get karma points for your company!</p>
 
     <%= link_to "Find a charity project to support", charities_path %>
+    <%= form_tag charities_path, method: :get do %>
+      <%= text_field_tag :query,
+                         params[:query],
+                         class: "form-control",
+                         placeholder: "Find a charity"%>
+      <%= submit_tag "Search" %>
+    <% end %>
   </div>
 
   <div class="head-illu">

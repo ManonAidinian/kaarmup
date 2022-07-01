@@ -41,3 +41,6 @@ end
 p User.count
 p Charity.count
 p Need.count
+
+
+url = "https://api.globalgiving.org/api/public/orgservice/all/organizations/active?api_key=41f6ec06-2b65-41a7-b0c2-c5f7e1e36924"

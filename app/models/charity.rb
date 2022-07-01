@@ -6,10 +6,13 @@ class Charity < ApplicationRecord
 
   has_one_attached :photo
 
-  # include PgSearch::Model
-  # pg_search_scope :search_by_name_and_category_and_location,
-  #   against: [ :name, :category, :location ],
-  #   using: {
-  #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
-  #   }
+  include PgSearch::Model
+  pg_search_scope :search_globally,
+    against: [ :name, :category, :location ],
+    associated_against: {
+      needs: [ :title, :category ]
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

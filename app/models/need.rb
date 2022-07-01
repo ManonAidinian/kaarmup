@@ -9,14 +9,4 @@ class Need < ApplicationRecord
   validates :category, inclusion: { in: NEED_CATEGORIES }
 
   has_many_attached :photos
-
-  include PgSearch::Model
-  pg_search_scope :global_search,
-    against: [ :title, :category ],
-    associated_against: {
-      charity: [ :name, :category, :location ]
-    },
-    using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
-    }
 end
