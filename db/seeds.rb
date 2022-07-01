@@ -21,23 +21,31 @@ file = File.open(Rails.root.join("app/assets/images/marypo-avatar.jpg"))
 charity_user.photo.attach(io: file, filename: "marypo-avatar.jpg", content_type: 'images/jpg')
 
 charity1 = Charity.new(
-  name: "Family hunt",
+  name: "Bungkus",
   location: "Bali",
-  description: "Let's find a new family for Lola",
-  category: "Animal rescue",
+  description: "We cook and distribute meals for the most in need",
+  category: "Food support",
   user_id: charity_user.id
 )
 charity1.save!
-file = File.open(Rails.root.join("app/assets/images/lola.jpg"))
-charity1.photo.attach(io: file, filename: "lola.jpg", content_type: 'images/jpg')
+file = File.open(Rails.root.join("app/assets/images/nasi.jpg"))
+charity1.photo.attach(io: file, filename: "nasi.jpg", content_type: 'images/jpg')
 
 need1 = Need.new(
-  title: "Adoption family",
-  karma_points: 37,
-  category: "Animal adoption",
+  title: "Raw food donation",
+  karma_points: 18,
+  category: "Food",
   charity_id: charity1.id
 )
 need1.save!
+
+need2 = Need.new(
+  title: "Kitchen supplies",
+  karma_points: 5,
+  category: "Supplies",
+  charity_id: charity1.id
+)
+need2.save!
 
 company_user = User.create(email: "ma-cie@mail.com", password: "121212",first_name: "Manon", last_name: "Aidinian", user_type: "Company")
 file = File.open(Rails.root.join("app/assets/images/manon-avatar.jpg"))
