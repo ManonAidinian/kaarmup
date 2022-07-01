@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   resources :charities do
     resources :needs, only: [:new, :create]
   end
-  resources :needs, only: [:edit, :update, :destroy]
+  resources :needs, only: [:edit, :update, :destroy] do
+    resources :good_actions, only: [:new, :create]
+  end
   resources :companies, only: [:new, :create]
   resources :users, only: [:update]
+
   get '/dashboard', to: 'pages#dashboard'
   get '/onboarding', to: 'pages#onboarding'
 end
