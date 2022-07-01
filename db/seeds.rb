@@ -19,7 +19,7 @@ file = File.open(Rails.root.join("app/assets/images/manon-avatar.jpg"))
 user1.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/jpg')
 
 
-5.times do
+2.times do
   user = User.new(email: Faker::Internet.email, password: "123123")
   user.save!
   charity = Charity.new(
@@ -29,7 +29,7 @@ user1.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images
   user_id: user.id
   )
   charity.save!
-  3.times do
+  1.times do
     need = Need.new(
     title: Faker::Lorem.sentence(word_count: 3),
     karma_points: rand(1..50),
@@ -45,7 +45,9 @@ p Charity.count
 p Need.count
 
 url = "https://api.globalgiving.org/api/public/orgservice/all/organizations/active?api_key=41f6ec06-2b65-41a7-b0c2-c5f7e1e36924"
-organizations_serialized = URI.open(url, Accept: "application/json", Content_type: "application/json").read
-organization = JSON.parse(organizations_serialized)
+organizations_serialized = URI.open(url, "Accept" => "application/json", "Content_type" => "application/json").read
+organizations = JSON.parse(organizations_serialized)
 
-puts organizations
+puts organizations["organizations"]["organization"][0]["name"]
+puts organizations["organizations"]["organization"][1]["name"]
+puts organizations["organizations"]["organization"][2]["name"]
