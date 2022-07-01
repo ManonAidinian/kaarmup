@@ -66,6 +66,7 @@
 
 
 .charity-cards-box {
+  display: flex;
   background-color: white;
   border-radius: 9px;
   margin: 10px;
@@ -95,5 +96,14 @@
   padding: 25px;
   border-radius: 9px;
   border: 1px solid rgb(225, 225, 225);
+  margin: 10px;
+}
+
+.charity-card-needs {
+  background-color: white;
+  flex-grow: 1;
+  padding: 25px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 9px;
   margin: 10px;
 }

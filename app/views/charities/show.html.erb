@@ -4,9 +4,10 @@
   <div class="charity-card-header">
     <div class="charity-card-infos">
       <h4><%= @charity.name%></h4>
-      <p><%= @charity.description %></p>
-      <p><%= @charity.category %></p>
-      <p><%= @charity.location %></p>
+      <p>Our mission: <%= @charity.description %></p>
+      <p>Category: <%= @charity.category %></p>
+      <p>📍 <%= @charity.location %></p>
+      <%= link_to "Contact charity", "#" %>
     </div>
     <div>
       <% if @charity.photo.attached?%>
@@ -16,14 +17,15 @@
       <% end %>
     </div>
   </div>
-  <div class="needs-box">
-    <p>We need:</p>
+  <div class="charity-card-needs">
+    <h3>We need:</h3>
     <% @charity.needs.each do |need| %>
-      <p><%= need.title %>
-      <%= need.description %>
-      <%= need.category %>
-      <%= need.karma_points %> KP</p>
-      <%= need.status %>
+      <p><strong><%= need.title %></strong></p>
+      <p>Description: <%= need.description %></p>
+      <p>Category: <%= need.category %></p>
+      <p>Get <%= need.karma_points %> Karma points</p>
+      <p>Need status:<%= need.status %></p>
+      <%= link_to "Claim", new_need_good_action_path(need.id)%>
     <% end %>
   </div>
 </div>
