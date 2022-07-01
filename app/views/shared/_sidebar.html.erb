@@ -19,7 +19,7 @@
     <% elsif current_user.user_type == "Charity" %>
       <p><%= link_to "Create a #{current_user.user_type}", new_charity_path %></p>
     <% end %>
-    <p><%= link_to "Edit my profile", "#" %></p>
+    <p><%= link_to "Edit my profile", edit_user_registration_path %></p>
   </div>
 
   <div class="dashboard-footer">
