@@ -5,4 +5,14 @@ class Charity < ApplicationRecord
   validates :name, :description, :location, presence: true
 
   has_one_attached :photo
+
+  include PgSearch::Model
+  pg_search_scope :search_globally,
+    against: [ :name, :category, :location ],
+    associated_against: {
+      needs: [ :title, :category ]
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
