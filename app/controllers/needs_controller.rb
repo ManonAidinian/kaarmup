@@ -15,6 +15,19 @@ class NeedsController < ApplicationController
     end
   end
 
+  def edit
+    @need = Need.find(params[:id])
+  end
+
+  def update
+    @need = Need.find(params[:id])
+    if @need.update(need_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def need_params

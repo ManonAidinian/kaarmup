@@ -15,11 +15,10 @@
       <p><%= need.title %>
       <%= need.description %>
       <%= need.category %>
-      <%= need.karma_points %> KP</p>
+      <%= need.karma_points %> KP
+      <%= link_to "Edit", edit_need_path(need.id)%></p>
     <% end %>
-  </div>
-    <div>
     <%= link_to "Add a need", new_charity_need_path(charity.id), class: "btn btn-primary" %>
-    </div>
+  </div>
   </div>
 <% end %>
