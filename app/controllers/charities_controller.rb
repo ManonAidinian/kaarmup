@@ -21,6 +21,19 @@ class CharitiesController < ApplicationController
     end
   end
 
+  def edit
+    @charity = Charity.find(params[:id])
+  end
+
+  def update
+    @charity = Charity.find(params[:id])
+    if @charity.update(charity_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def charity_params

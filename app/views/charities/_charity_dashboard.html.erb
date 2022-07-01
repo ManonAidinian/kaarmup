@@ -8,6 +8,7 @@
       <p><%=charity.description%></p>
       <p><%=charity.category%></p>
       <p><%=charity.location%></p>
+      <%= link_to "Edit charity", edit_charity_path(charity.id), class: "btn btn-primary" %>
     </div>
     <div class="needs-box">
     <p>We need:</p>
