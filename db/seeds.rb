@@ -13,6 +13,9 @@ User.destroy_all
 Charity.destroy_all
 Company.destroy_all
 Need.destroy_all
+Good_action.destroy_all
+
+NEED_CATEGORIES = ["Food Donation", "Raw material", "School supplies", "Medical supplies", "Workforce", "IT Service", "Legal service", "Climate action", "Ecology", "Recycling", "Education", "Animal rescue", "Vehicule", "Premise/Room", "Textile", "Donation", "Household supplies", "Consulting", "Other"]
 
 # ----------------- DUMMY DATAS -----------------
 
@@ -24,7 +27,6 @@ charity1 = Charity.new(
   name: "Bungkus",
   location: "Bali",
   description: "We cook and distribute meals for the most in need",
-  category: "Food support",
   user_id: charity_user.id
 )
 charity1.save!
@@ -73,7 +75,7 @@ i = 0
     need = Need.new(
     title: Faker::Lorem.sentence(word_count: 3),
     karma_points: rand(1..50),
-    category: organizations["organizations"]["organization"][i]["themes"]["theme"][0, 1].sample["name"],
+    category: NEED_CATEGORIES.sample,
     charity_id: charity.id
   )
   need.save!

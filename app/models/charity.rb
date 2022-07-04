@@ -8,9 +8,9 @@ class Charity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_globally,
-    against: [ :name, :category, :location ],
+    against: [ :name, :location ],
     associated_against: {
-      needs: [ :title, :category ]
+      needs: [ :title ]
     },
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
