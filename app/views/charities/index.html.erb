@@ -1,26 +1,34 @@
 <%= link_to "Back", :back %>
 
+<%# <div class="container"> %>
+
 <div class="index-cards-box">
   <h1>Discover charities to support!</h1>
   <% @charities.each do |charity| %>
-    <div class="index-card">
-      <div class="index-card-img">
+    <div class="index-card raw">
+
+      <div class="index-card-img col-md-3">
         <% if charity.photo.attached?%>
           <%= cl_image_tag charity.photo.key, class: "index-card-img"%>
         <% else %>
           <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "index-card-img"%>
         <% end %>
       </div>
-      <div class="index-card-infos">
+
+      <div class="index-card-infos col-md-6">
         <p><%= link_to charity.name, charity_path(charity)%></p>
-        <p><%= charity.description %></p>
-        <p><%= charity.category %></p>
+        <p><%= charity.description.truncate_words(50) %></p>
         <p><%= charity.location %></p>
+      </div>
+
+      <div class="index-card-needs col-md-3">
         We need :
         <% charity.needs.each do |need| %>
-          <%= need.category %>
+          #<%= need.category %>
         <% end %>
       </div>
+
     </div>
   <% end  %>
 </div>
+<%# </div> %>
