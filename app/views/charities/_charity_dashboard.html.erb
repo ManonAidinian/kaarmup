@@ -1,31 +1,43 @@
 <%current_user.charities.each do |charity|%>
-  <div class="dashboard-main-card">
+<div class="container">
 
-    <div>
-      <%= cl_image_tag charity.photo.key, class: "dashboard-main-card-img" %>
+  <div class="charity-dash-header row">
+    <div class="charity-dash-infos col-md-6">
+      <h4><%= charity.name%></h4>
+      <p>Our mission: <%= charity.description %></p>
+      <p>📍 <%= charity.location %></p>
+      <p><%= link_to "Edit charity", edit_charity_path(charity.id) %></p>
+      <p><%= link_to "Delete charity", charity_path(charity.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
     </div>
-
-    <div class="dashboard-main-card-infos">
-      <h4><%=charity.name%></h4>
-      <p><%=charity.description%></p>
-      <p><%=charity.category%></p>
-      <p><%=charity.location%></p>
-      <%= link_to "Edit charity", edit_charity_path(charity.id) %>
-      <%= link_to "Delete charity", charity_path(charity.id), method: :delete, data: { confirm: "Are you sure?" }%>
+    <div class= "col-md-6">
+      <% if charity.photo.attached?%>
+        <%= cl_image_tag charity.photo.key, class: "charity-dash-img"%>
+      <% else %>
+        <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "charity-dash-img"%>
+      <% end %>
     </div>
+  </div>
 
-    <div class="needs-box">
-    <p>We need:</p>
+  <div class="charity-dash-needs row">
+    <h3>We need:</h3>
     <% charity.needs.each do |need| %>
-      <p><%= need.title %>
-      <%= need.description %>
-      <%= need.category %>
-      <%= need.karma_points %> KP
-      <%= link_to "Edit", edit_need_path(need.id)%>
-      <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
+      <div class="col-md-4">
+        <p><strong><%= need.title %></strong></p>
+        <p>Description: <%= need.description %></p>
+      </div>
+      <div class="col-md-4">
+        <p>Category: #<%= need.category %></p>
+        <p>Get <%= need.karma_points %> Karma points</p>
+        <p>Need status:<%= need.status %></p>
+      </div>
+      <div class="col-md-4">
+        <p><%= link_to "See", "#"%></p>
+        <p><%= link_to "Edit", edit_need_path(need.id)%> |
+        <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
+      </div>
     <% end %>
     <%= link_to "Add a need", new_charity_need_path(charity.id) %>
   </div>
 
-  </div>
+</div>
 <% end %>

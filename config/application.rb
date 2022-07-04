@@ -24,6 +24,4 @@ module Kaarmup
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
-
-  validates_length_of :description, :maximum => 100
 end
