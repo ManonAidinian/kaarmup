@@ -53,6 +53,17 @@ company_user = User.create(email: "ma-cie@mail.com", password: "121212",first_na
 file = File.open(Rails.root.join("app/assets/images/manon-avatar.jpg"))
 company_user.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/jpg')
 
+company1 = Company.new(
+  name: "Chez Mama",
+  location: "Bali",
+  description: "Family Restaurant with a big heart",
+  user_id: company_user.id
+)
+company1.save!
+file = File.open(Rails.root.join("app/assets/images/chezmama.jpg"))
+company1.photo.attach(io: file, filename: "chezmama.jpg", content_type: 'images/jpg')
+
+
 
 # ----------------- CHARITIES SEEDING -----------------
 

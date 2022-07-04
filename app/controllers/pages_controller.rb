@@ -6,7 +6,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # @good_actions = GoodAction.where(:company_id == current_user.companies.first.id)
+    if current_user.user_type == "Company"
+      @good_actions = GoodAction.where(:company_id == current_user.companies.first.id)
+    end
   end
 
   def onboarding
