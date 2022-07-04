@@ -33,46 +33,40 @@
 // -----------------Dashboard card----------------------
 
 
-.dashboard-main-card {
+.charity-dash-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 9px;
-  margin: 10px;
-  // box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  border: 1px solid rgb(225, 225, 225);
-  height: 300px;
 }
 
-.dashboard-main-card-img {
-  border-radius: 9px 0px 0px 9px;
-  height: 300px;
-  width: 300px;
+.charity-dash-img {
+  width: 500px;
+  height: 500px;
   object-fit: cover;
+  border-radius: 9px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 10px;
 }
 
-.dashboard-main-card-infos {
-  padding: 25px;
-}
-
-.needs-box {
-  padding: 25px;
-}
-
-
-// --------------------charity card----------------
-
-
-
-.charity-cards-box {
-  display: flex;
+.charity-dash-infos {
   background-color: white;
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  padding: 25px;
+  margin: 10px;
+}
+
+.charity-dash-needs {
+  background-color: white;
+  padding: 25px;
+  border: 1px solid rgb(225, 225, 225);
   border-radius: 9px;
   margin: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  padding-bottom: 10px;
 }
+
+
+// --------------------show charity card----------------
+
 
 .charity-card-header {
   display: flex;
@@ -94,14 +88,11 @@
   width: 500px;
   height: 500px;
   padding: 25px;
-  border-radius: 9px;
-  border: 1px solid rgb(225, 225, 225);
   margin: 10px;
 }
 
 .charity-card-needs {
   background-color: white;
-  flex-grow: 1;
   padding: 25px;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 9px;

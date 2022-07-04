@@ -8,7 +8,7 @@ class Charity < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_globally,
-    against: [ :name, :category, :location ],
+    against: [ :name, :location ],
     associated_against: {
       needs: [ :title, :category ]
     },

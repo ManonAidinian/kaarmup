@@ -1,4 +1,6 @@
 class CharitiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     if params[:query].present?
       @charities = Charity.search_globally(params[:query])
@@ -47,6 +49,6 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:name, :description, :category, :location, :user_id, :photo)
+    params.require(:charity).permit(:name, :description, :location, :user_id, :photo)
   end
 end

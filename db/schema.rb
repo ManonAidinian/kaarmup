@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_28_062623) do
+ActiveRecord::Schema.define(version: 2022_07_04_055319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2022_06_28_062623) do
   create_table "charities", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "category"
     t.string "location"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -70,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_06_28_062623) do
     t.bigint "need_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
     t.index ["company_id"], name: "index_good_actions_on_company_id"
     t.index ["need_id"], name: "index_good_actions_on_need_id"
   end
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_06_28_062623) do
     t.text "description"
     t.string "category"
     t.integer "karma_points"
-    t.string "status"
+    t.string "status", default: "Needed"
     t.bigint "charity_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

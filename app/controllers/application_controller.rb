@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :check_user_onboarded
+  before_action :authenticate_user!
 
   def check_user_onboarded
     return unless current_user
