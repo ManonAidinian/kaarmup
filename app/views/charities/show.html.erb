@@ -1,14 +1,15 @@
 <%= link_to "Back", :back %>
-<div class="charity-cards-box">
 
-  <div class="charity-card-header">
-    <div class="charity-card-infos">
+<div class="container">
+
+  <div class="charity-card-header row">
+    <div class="charity-card-infos col-md-6">
       <h4><%= @charity.name%></h4>
       <p>Our mission: <%= @charity.description %></p>
       <p>📍 <%= @charity.location %></p>
       <%= link_to "Contact charity", "#" %>
     </div>
-    <div>
+    <div class= "col-md-6">
       <% if @charity.photo.attached?%>
         <%= cl_image_tag @charity.photo.key, class: "charity-card-img"%>
       <% else %>
@@ -16,15 +17,23 @@
       <% end %>
     </div>
   </div>
-  <div class="charity-card-needs">
+
+  <div class="charity-card-needs row">
     <h3>We need:</h3>
     <% @charity.needs.each do |need| %>
-      <p><strong><%= need.title %></strong></p>
-      <p>Description: <%= need.description %></p>
-      <p>Category: <%= need.category %></p>
-      <p>Get <%= need.karma_points %> Karma points</p>
-      <p>Need status:<%= need.status %></p>
-      <%= link_to "Claim", new_need_good_action_path(need.id)%>
+      <div class="col-md-4">
+        <p><strong><%= need.title %></strong></p>
+        <p>Description: <%= need.description %></p>
+      </div>
+      <div class="col-md-4">
+        <p>Category: #<%= need.category %></p>
+        <p>Get <%= need.karma_points %> Karma points</p>
+        <p>Need status:<%= need.status %></p>
+      </div>
+      <div class="col-md-4">
+        <%= link_to "Claim", new_need_good_action_path(need.id)%>
+      </div>
     <% end %>
   </div>
+
 </div>

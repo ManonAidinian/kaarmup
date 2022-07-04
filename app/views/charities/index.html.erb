@@ -18,11 +18,11 @@
       <div class="index-card-infos col-md-6">
         <p><%= link_to charity.name, charity_path(charity)%></p>
         <p><%= charity.description.truncate_words(50) %></p>
-        <p><%= charity.location %></p>
+        <p>📍 <%= charity.location %></p>
       </div>
 
       <div class="index-card-needs col-md-3">
-        We need :
+        <p>We need :</p>
         <% charity.needs.each do |need| %>
           #<%= need.category %>
         <% end %>

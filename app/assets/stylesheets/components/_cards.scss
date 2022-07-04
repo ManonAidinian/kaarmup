@@ -64,16 +64,6 @@
 // --------------------charity card----------------
 
 
-
-.charity-cards-box {
-  display: flex;
-  background-color: white;
-  border-radius: 9px;
-  margin: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  padding-bottom: 10px;
-}
-
 .charity-card-header {
   display: flex;
   align-items: center;
@@ -94,14 +84,11 @@
   width: 500px;
   height: 500px;
   padding: 25px;
-  border-radius: 9px;
-  border: 1px solid rgb(225, 225, 225);
   margin: 10px;
 }
 
 .charity-card-needs {
   background-color: white;
-  flex-grow: 1;
   padding: 25px;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 9px;
