@@ -21,6 +21,19 @@ class GoodActionsController < ApplicationController
     end
   end
 
+  def update
+    @good_action = GoodAction.find(params[:id])
+    @good_action.status = "Approved and Rewarded"
+    @need = @good_action.need
+    @need.status = "Solved"
+    @good_action.save!
+    @need.save!
+    @company = @good_action.company
+    @company.total_karma_points += @need.karma_points
+    @company.save!
+    redirect_to dashboard_path
+  end
+
   def destroy
     @good_action = GoodAction.find(params[:id])
     @good_action.destroy

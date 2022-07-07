@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def dashboard
     if current_user.user_type == "Company"
-      @good_actions = GoodAction.where(:company_id == current_user.companies.first.id)
+      @good_actions = GoodAction.where(company_id: current_user.companies.first.id)
     end
   end
 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :needs, only: [:edit, :update, :destroy] do
     resources :good_actions, only: [:new, :create]
   end
-  resources :good_actions, only: :destroy
+  resources :good_actions, only: [:update, :destroy]
   resources :companies, only: [:new, :create]
   resources :users, only: [:update]
 
