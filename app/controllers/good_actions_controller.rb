@@ -28,11 +28,9 @@ class GoodActionsController < ApplicationController
     @need.status = "Solved"
     @good_action.save!
     @need.save!
-    if current_user.user_type == "Company"
-      @company = current_user.companies.first
-      @company.total_karma_points += @need.karma_points
-      @company.save!
-    end
+    @company = @good_action.company
+    @company.total_karma_points += @need.karma_points
+    @company.save!
     redirect_to dashboard_path
   end
 
