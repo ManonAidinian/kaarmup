@@ -10,10 +10,10 @@
         <p><%= link_to "Delete charity", charity_path(current_user.charity.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
       </div>
       <div class= "col-md-6">
-        <% if current_user.charity.photos.attached?%>
-          <%= cl_image_tag current_user.charity.photos.first.key, class: "charity-dash-img"%>
+        <% if current_user.charity.photos.attached? %>
+          <%= cl_image_tag current_user.charity.photos.first.key, class: "col-md-3"%>
         <% else %>
-          <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "charity-dash-img"%>
+          <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "col-md-3" %>
         <% end %>
       </div>
     </div>

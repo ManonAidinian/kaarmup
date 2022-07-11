@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  # skip_before_action :check_user_onboarded, only: [:new]
+skip_before_action :check_user_onboarded, only: [:new, :create]
 
   def new
     @company = Company.new

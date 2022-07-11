@@ -31,7 +31,7 @@ charity1 = Charity.new(
 )
 charity1.save!
 file = File.open(Rails.root.join("app/assets/images/nasi.jpg"))
-charity1.photo.attach(io: file, filename: "nasi.jpg", content_type: 'images/jpg')
+charity1.photos.attach(io: file, filename: "nasi.jpg", content_type: 'images/jpg')
 
 need1 = Need.new(
   title: "Raw food donation",
@@ -61,7 +61,7 @@ company1 = Company.new(
 )
 company1.save!
 file = File.open(Rails.root.join("app/assets/images/chezmama.jpg"))
-company1.photo.attach(io: file, filename: "chezmama.jpg", content_type: 'images/jpg')
+company1.photos.attach(io: file, filename: "chezmama.jpg", content_type: 'images/jpg')
 
 
 
@@ -73,7 +73,12 @@ organizations = JSON.parse(organizations_serialized)
 
 i = 0
 10.times do
-  user = User.new(email: Faker::Internet.email, password: "123123")
+  user = User.new(email: Faker::Internet.email,
+                  password: "123123",
+                  first_name: Faker::Name.first_name,
+                  last_name: Faker::Name.last_name,
+                  user_type: "Charity"
+                )
   user.save!
   charity = Charity.new(
   name: organizations["organizations"]["organization"][i]["name"],

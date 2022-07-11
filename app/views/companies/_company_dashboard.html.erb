@@ -1,7 +1,11 @@
 
   <div class="row">
     <div>
+    <% if current_user.company.photos.attached? %>
       <%= cl_image_tag current_user.company.photos.first.key, class: "col-md-3"%>
+    <% else %>
+      <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "col-md-3" %>
+    <% end %>
     </div>
     <div class="col-md-9">
       <p><%=current_user.company.name%></p>

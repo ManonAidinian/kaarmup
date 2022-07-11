@@ -1,6 +1,6 @@
 class CharitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  # skip_before_action :check_user_onboarded, only: [:new]
+  skip_before_action :check_user_onboarded, only: [:new, :create]
 
   def index
     if params[:query].present?
