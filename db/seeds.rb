@@ -87,6 +87,9 @@ i = 0
   user_id: user.id
   )
   charity.save!
+  charity_pic = URI.open("https://source.unsplash.com/random/?charity=#{rand(1..10)}")
+  charity.photos.attach(io: charity_pic, filename: "#{charity.name}_#{charity.id}.jpg", content_type: 'images/jpg')
+
   5.times do
     need = Need.new(
     title: Faker::Lorem.sentence(word_count: 3),

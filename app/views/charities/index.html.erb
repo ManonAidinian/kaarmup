@@ -8,10 +8,10 @@
     <div class="index-card raw">
 
       <div class="index-card-img col-md-3">
-        <% if charity.photo.attached?%>
-          <%= cl_image_tag charity.photo.key, class: "index-card-img"%>
+        <% if charity.photos.attached?%>
+          <%= cl_image_tag charity.photos.first.key, class: "index-card-img"%>
         <% else %>
-          <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "index-card-img"%>
+          <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "index-card-img"%>
         <% end %>
       </div>
 
