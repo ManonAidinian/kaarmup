@@ -6,7 +6,7 @@
       <%= f.input :name%>
       <%= f.input :description%>
       <%= f.input :location%>
-      <%= f.input :photos, as: :file %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true} %>
       <%= f.button :submit, "Register my company"%>
     <%end%>
 

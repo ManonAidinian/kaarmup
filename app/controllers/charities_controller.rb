@@ -1,5 +1,6 @@
 class CharitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  # skip_before_action :check_user_onboarded, only: [:new]
 
   def index
     if params[:query].present?
@@ -49,6 +50,6 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:name, :description, :location, :user_id, :photo)
+    params.require(:charity).permit(:name, :description, :location, :user_id, photos: [])
   end
 end

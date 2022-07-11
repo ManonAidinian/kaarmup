@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_one :company, dependent: :destroy
   has_one_attached :photo
 
+  # def onboarded?
+  #   current_user.company.present? || current_user.charity.present?
+  # end
+
 end

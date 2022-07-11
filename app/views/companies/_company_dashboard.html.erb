@@ -1,13 +1,12 @@
-<%current_user.companies.each do |company|%>
+
   <div class="row">
     <div>
-      <%= cl_image_tag company.photo.key, class: "col-md-3"%>
+      <%= cl_image_tag current_user.company.photos.first.key, class: "col-md-3"%>
     </div>
     <div class="col-md-9">
-      <p><%=company.name%></p>
-      <p><%=company.description%></p>
-      <p><%=company.location%></p>
-      <p><%=company.total_karma_points%> KMP</p>
+      <p><%=current_user.company.name%></p>
+      <p><%=current_user.company.description%></p>
+      <p><%=current_user.company.location%></p>
+      <p><%=current_user.company.total_karma_points%> KMP</p>
     </div>
   </div>
-<% end %>

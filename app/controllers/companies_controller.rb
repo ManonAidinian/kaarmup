@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  # skip_before_action :check_user_onboarded, only: [:new]
 
   def new
     @company = Company.new
@@ -17,6 +18,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :description, :location, :user_id, :photo)
+    params.require(:company).permit(:name, :description, :location, :user_id, photos: [])
   end
 end

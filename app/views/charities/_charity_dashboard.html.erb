@@ -1,17 +1,17 @@
-<%current_user.charities.each do |charity|%>
+
   <div class="container">
 
     <div class="charity-dash-header row">
       <div class="charity-dash-infos col-md-6">
-        <h4><%= charity.name%></h4>
-        <p>Our mission: <%= charity.description %></p>
-        <p>📍 <%= charity.location %></p>
-        <p><%= link_to "Edit charity", edit_charity_path(charity.id) %></p>
-        <p><%= link_to "Delete charity", charity_path(charity.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
+        <h4><%= current_user.charity.name%></h4>
+        <p>Our mission: <%= current_user.charity.description %></p>
+        <p>📍 <%= current_user.charity.location %></p>
+        <p><%= link_to "Edit charity", edit_charity_path(current_user.charity.id) %></p>
+        <p><%= link_to "Delete charity", charity_path(current_user.charity.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
       </div>
       <div class= "col-md-6">
-        <% if charity.photo.attached?%>
-          <%= cl_image_tag charity.photo.key, class: "charity-dash-img"%>
+        <% if current_user.charity.photos.attached?%>
+          <%= cl_image_tag current_user.charity.photos.first.key, class: "charity-dash-img"%>
         <% else %>
           <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "charity-dash-img"%>
         <% end %>
@@ -20,7 +20,7 @@
 
     <div class="charity-dash-needs row">
       <h3>We need:</h3>
-      <% charity.needs.each do |need| %>
+      <% current_user.charity.needs.each do |need| %>
         <div class="col-md-4">
           <p><strong><%= need.title %></strong></p>
           <p>Description: <%= need.description %></p>
@@ -40,8 +40,7 @@
           <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
         </div>
       <% end %>
-      <%= link_to "Add a need", new_charity_need_path(charity.id) %>
+      <%= link_to "Add a need", new_charity_need_path(current_user.charity.id) %>
     </div>
 
   </div>
-<% end %>

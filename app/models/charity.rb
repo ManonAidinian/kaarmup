@@ -4,7 +4,7 @@ class Charity < ApplicationRecord
 
   validates :name, :description, :location, presence: true
 
-  has_one_attached :photo
+  has_many_attached :photos
 
   include PgSearch::Model
   pg_search_scope :search_globally,

@@ -4,5 +4,5 @@ class Company < ApplicationRecord
   has_many :needs, through: :good_actions, dependent: :destroy
 
   validates :name, :location, presence: true
-  has_one_attached :photo
+  has_many_attached :photos
 end
