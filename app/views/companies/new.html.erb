@@ -1,11 +1,12 @@
-<div class="container">
+<div class="form-container">
 
-  <h2>Register a new company:</h2>
+  <h2>Register your company details and get on board!</h2>
+  <p>You can always edit your infomations later</p>
   <%= simple_form_for(@company) do |f| %>
       <%= f.input :name%>
       <%= f.input :description%>
       <%= f.input :location%>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true} %>
       <%= f.button :submit, "Register my company"%>
     <%end%>
 

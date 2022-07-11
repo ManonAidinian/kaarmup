@@ -1,6 +1,7 @@
-<div class="container">
+<div class="form-container">
 
 <h2>Sign up</h2>
+<p>Join the community, connect with like-minded leaders and grow positive impact together</p>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -17,6 +18,13 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name%>
+    <%= f.input :last_name%>
+    <%= f.label 'Are you representing a company or a charity?'%>
+    <%= f.input :user_type, collection: User::USER_TYPES, label: false %>
+    <%= f.label 'Please upload a profile picture:'%>
+    <%= f.input :photo, as: :file, label: false %>
+
   </div>
 
   <div class="form-actions">

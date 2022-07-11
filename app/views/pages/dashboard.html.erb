@@ -4,17 +4,31 @@
 
   <div class="tabs-box">
 
-    <% if current_user.user_type == "Company" %>
-      <h3>My companies:</h3>
+    <% if current_user.user_type == "Company" && current_user.company.present?%>
+      <h3>My company:</h3>
       <%= render "companies/company_dashboard" %>
       <h3>My good actions:</h3>
+      <% if current_user.company.good_actions.first.present? %>
       <%= render "shared/claim" %>
+      <% end %>
 
 
-    <% elsif current_user.user_type == "Charity" %>
-      <h3>My charities:</h3>
+    <% elsif current_user.user_type == "Charity" && current_user.charity.present?%>
+      <h3>My charity:</h3>
       <%= render "charities/charity_dashboard" %>
+
+
+    <%else %>
+      <h3>Register your <%= current_user.user_type %> to start connecting with like minded leaders!</h3>
+      <% if current_user.user_type == "Company"%>
+        <%= link_to "Register my company", new_company_path %>
+      <% elsif current_user.user_type == "Charity"%>
+        <%= link_to "Register my charity", new_charity_path %>
+      <% end %>
+
+
     <% end %>
+
 
   </div>
 </div>

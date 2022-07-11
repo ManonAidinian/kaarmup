@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :users, only: [:update]
 
   get '/dashboard', to: 'pages#dashboard'
-  get '/onboarding', to: 'pages#onboarding'
+  # get '/onboarding', to: 'pages#onboarding'
 end

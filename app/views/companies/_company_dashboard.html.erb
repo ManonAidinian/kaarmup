@@ -1,13 +1,16 @@
-<%current_user.companies.each do |company|%>
+
   <div class="row">
     <div>
-      <%= cl_image_tag company.photo.key, class: "col-md-3"%>
+    <% if current_user.company.photos.attached? %>
+      <%= cl_image_tag current_user.company.photos.first.key, class: "col-md-3"%>
+    <% else %>
+      <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "col-md-3" %>
+    <% end %>
     </div>
     <div class="col-md-9">
-      <p><%=company.name%></p>
-      <p><%=company.description%></p>
-      <p><%=company.location%></p>
-      <p><%=company.total_karma_points%> KMP</p>
+      <p><%=current_user.company.name%></p>
+      <p><%=current_user.company.description%></p>
+      <p><%=current_user.company.location%></p>
+      <p><%=current_user.company.total_karma_points%> KMP</p>
     </div>
   </div>
-<% end %>
