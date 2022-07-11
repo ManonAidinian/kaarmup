@@ -6,14 +6,13 @@ class User < ApplicationRecord
 
   USER_TYPES = ["Company", "Charity"]
 
-  validates :first_name, :last_name, :user_type, presence: true, on: :update
-  validates :user_type, inclusion: { in: USER_TYPES }, on: :update
+  # validates :first_name, :last_name, :user_type, presence: true, on: :update
+  validates :first_name, :last_name, :user_type, presence: true
+  # validates :user_type, inclusion: { in: USER_TYPES }, on: :update
+  validates :user_type, inclusion: { in: USER_TYPES }
 
-  has_many :charities, dependent: :destroy
-  has_many :companies, dependent: :destroy
+  has_one :charity, dependent: :destroy
+  has_one :company, dependent: :destroy
   has_one_attached :photo
 
-  def onboarded?
-    first_name.present? && last_name.present? && user_type.present?
-  end
 end
