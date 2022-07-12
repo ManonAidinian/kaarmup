@@ -3,36 +3,50 @@
 <div class="container">
 
   <div class="charity-card-header row">
-    <div class="charity-card-infos col-md-6">
-      <h4><%= @charity.name%></h4>
-      <p>Our mission: <%= @charity.description %></p>
-      <p>📍 <%= @charity.location %></p>
-      <%= link_to "Contact charity", "#" %>
+    <div class="charity-card-infos col-md-4">
+      <h1><%= @charity.name%></h1>
+      <br>
+      <h4>📍 <%= @charity.location %></h4>
+      <br>
+      <%= link_to "Contact charity", "#" , class: "btn btn-primary"%>
     </div>
     <div class= "col-md-6">
-      <% if @charity.photo.attached?%>
-        <%= cl_image_tag @charity.photo.key, class: "charity-card-img"%>
+      <% if @charity.photos.attached?%>
+        <%= cl_image_tag @charity.photos.first.key, class: "charity-card-img"%>
       <% else %>
         <%= image_tag "https://source.unsplash.com/random/?charity=#{rand(1..10)}", class: "charity-card-img"%>
       <% end %>
     </div>
   </div>
 
-  <div class="charity-card-needs row">
-    <h3>We need:</h3>
+  <div class="mission">
+    <p>Our mission: <%= @charity.description %></p>
+  </div>
+
+
+  <div class="charity-card-needs">
+    <h3>You can help us with:</h3>
+
     <% @charity.needs.each do |need| %>
-      <div class="col-md-4">
+    <hr>
+    <div class="need row">
+
+      <div class="title-desc col-md-4">
         <p><strong><%= need.title %></strong></p>
         <p>Description: <%= need.description %></p>
       </div>
-      <div class="col-md-4">
+
+      <div class="cat-stat col-md-4">
         <p>Category: #<%= need.category %></p>
-        <p>Get <%= need.karma_points %> Karma points</p>
         <p>Need status: <%= need.status %> </p>
       </div>
-      <div class="col-md-4">
-        <%= link_to "Claim", new_need_good_action_path(need.id)%>
+
+      <div class="km-claim col-md-4">
+        <p><strong>Get <%= need.karma_points %> Karma points</strong></p>
+        <%= link_to "Claim", new_need_good_action_path(need.id), class: "btn btn-primary"%>
       </div>
+    </div>
+
     <% end %>
   </div>
 
