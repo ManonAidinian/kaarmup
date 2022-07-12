@@ -1,9 +1,9 @@
 .btn-primary {
-  background-color: rgb(153,123,234);
+  background-color: rgb(190,166,242);
 }
 
 .btn {
-  background-color: rgb(153,123,234);
+  background-color: rgb(190,166,242);
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
@@ -16,7 +16,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 1px solid rgb(153,123,234);
+  border: 1px solid rgb(190,166,242);
   padding: 0.375rem 1.5rem;
   font-size: 1rem;
   border-radius: 9px;
@@ -26,6 +26,6 @@
 
 .btn-primary:hover {
   color: #fff;
-  background-color: rgba(153,123,234,0.7);
-  border-color: rgba(153,123,234,0.7)
+  background-color: rgba(190,166,242,0.8);
+  border-color: rgba(190,166,242,0.8)
 }
