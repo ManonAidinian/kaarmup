@@ -14,7 +14,7 @@
 
 
     <% elsif current_user.user_type == "Charity" && current_user.charity.present?%>
-      <%# <h3>My charity:</h3> %>
+      <h3>My charity:</h3>
       <%= render "charities/charity_dashboard" %>
 
 

@@ -1,16 +1,26 @@
+<div class="dash-container">
 
-  <div class="row">
-    <div>
+
+
+  <div class="charity-dash-header row">
+    <div class= "col-md-6">
     <% if current_user.company.photos.attached? %>
-      <%= cl_image_tag current_user.company.photos.first.key, class: "col-md-3"%>
+      <%= cl_image_tag current_user.company.photos.first.key, class: "dash-card-img"%>
     <% else %>
-      <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "col-md-3" %>
+      <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "dash-card-img" %>
     <% end %>
     </div>
-    <div class="col-md-9">
-      <p><%=current_user.company.name%></p>
-      <p><%=current_user.company.description%></p>
-      <p><%=current_user.company.location%></p>
+
+    <div class="charity-dash-infos col-md-4">
+      <h2><%=current_user.company.name%></h2>
+      <p><%=current_user.company.description.truncate_words(68)%></p>
+      <p>📍 <%=current_user.company.location%></p>
       <p><%=current_user.company.total_karma_points%> KMP</p>
+      <p><%= link_to "Edit my company", edit_company_path(current_user.company.id) %></p>
     </div>
   </div>
+
+  <div class="dash-buttons">
+      <%= link_to "Ongoing claims", "#", class: "btn btn-primary dash-button"%>
+      <%= link_to "Claims history", "#", class: "btn btn-primary dash-button"%>
+    </div>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :good_actions, only: [:new, :create]
   end
   resources :good_actions, only: [:update, :destroy]
-  resources :companies, only: [:new, :create]
+  resources :companies, only: [:new, :create, :edit, :update]
   resources :users, only: [:update]
 
   get '/dashboard', to: 'pages#dashboard'
