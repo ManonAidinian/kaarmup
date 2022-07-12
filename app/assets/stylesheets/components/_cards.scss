@@ -15,7 +15,6 @@
   border-radius: 9px;
   margin: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
 }
 
 .index-card-img {
@@ -27,6 +26,15 @@
 
 .index-card-infos {
   padding: 25px;
+    a {
+      color: $db;
+    }
+}
+
+.card-link {
+  a {
+    text-decoration: none;
+  }
 }
 
 

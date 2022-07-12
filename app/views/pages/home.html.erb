@@ -1,19 +1,33 @@
 <div class="head">
-  <div class="head-text-and-cta">
-    <h1>KAARMUP</h1>
-    <p>Answer NGOs needs and get karma points for your company!</p>
 
-    <%= link_to "Find a charity project to support", charities_path %>
-    <%= form_tag charities_path, method: :get do %>
-      <%= text_field_tag :query,
-                         params[:query],
-                         class: "form-control",
-                         placeholder: "Find a charity"%>
-      <%= submit_tag "Search" %>
-    <% end %>
+  <div class="head-text-illu-box">
+    <div class="head-text">
+      <h1>We connect companies with charity leaders and help them grow their positive impact. </h1>
+    </div>
+
+    <div class="head-illu">
+      <%= image_tag ("home_header.svg"), style: "width:100%" %>
+    </div>
   </div>
 
-  <div class="head-illu">
-    <%= image_tag ("home_header.svg"), style: "width:100%" %>
+  <div class="head-search">
+    <%# link_to "Find a charity project to support", charities_path %>
+    <div class="search-container">
+      <%= form_tag charities_path, method: :get do %>
+        <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "🔍  Discover projects to support (search by category, location, name ...)"%>
+    </div>
+    <div class="search-button">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  <% end %>
   </div>
 </div>
+
+
+
+
+<%# <p>Answer NGOs needs and get karma points for your company!</p> %>
+<%# <i class="fas fa-search me-3"></i> %>
