@@ -7,7 +7,7 @@
         <p>Our mission: <%= current_user.charity.description %></p>
         <p>📍 <%= current_user.charity.location %></p>
         <p><%= link_to "Edit charity", edit_charity_path(current_user.charity.id) %></p>
-        <p><%= link_to "Delete charity", charity_path(current_user.charity.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
+        <%# <p> link_to "Delete charity", charity_path(current_user.charity.id), method: :delete, data: { confirm: "Are you sure?" }</p> %>
       </div>
       <div class= "col-md-6">
         <% if current_user.charity.photos.attached? %>
