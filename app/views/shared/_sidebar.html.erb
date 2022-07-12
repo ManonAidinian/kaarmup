@@ -15,6 +15,11 @@
 
   <div class="dashboard-menu">
     <p><%= link_to "Edit my profile", edit_user_registration_path %></p>
+    <% if current_user.user_type == "Charity" %>
+      <p><%= link_to "Edit my charity", edit_charity_path(current_user.charity.id) %></p>
+    <% elsif current_user.user_type == "Company" %>
+      <p><%= link_to "Edit my company", edit_company_path(current_user.company.id) %></p>
+    <% end %>
   </div>
 
   <div class="dashboard-footer">
