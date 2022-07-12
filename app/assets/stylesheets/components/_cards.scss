@@ -38,6 +38,69 @@
 }
 
 
+
+// --------------------show charity card----------------
+
+
+.charity-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.charity-card-infos {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 500px;
+  height: 400px;
+  padding: 25px;
+  margin: 10px;
+}
+
+.charity-card-img {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 9px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 10px;
+}
+
+.mission {
+  margin: 50px auto;
+  max-width: 800px;
+  text-align: center;
+}
+.charity-card-needs {
+  background-color: white;
+  padding: 25px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 9px;
+  margin: 10px;
+  margin-bottom: 50px;
+  h3 {
+    margin-bottom: 50px;
+  }
+}
+
+.need {
+  margin-top: 25px;
+}
+
+.cat-stat {
+  text-align: center;
+  margin: auto auto;
+}
+.km-claim {
+  text-align: center;
+  margin: auto auto;
+}
+
+
 // -----------------Dashboard card----------------------
 
 
@@ -65,41 +128,6 @@
 }
 
 .charity-dash-needs {
-  background-color: white;
-  padding: 25px;
-  border: 1px solid rgb(225, 225, 225);
-  border-radius: 9px;
-  margin: 10px;
-}
-
-
-// --------------------show charity card----------------
-
-
-.charity-card-header {
-  display: flex;
-  align-items: center;
-}
-
-.charity-card-img {
-  width: 500px;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 9px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin: 10px;
-}
-
-.charity-card-infos {
-  background-color: white;
-  text-align: center;
-  width: 500px;
-  height: 500px;
-  padding: 25px;
-  margin: 10px;
-}
-
-.charity-card-needs {
   background-color: white;
   padding: 25px;
   border: 1px solid rgb(225, 225, 225);

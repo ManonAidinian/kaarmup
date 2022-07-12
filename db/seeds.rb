@@ -92,10 +92,11 @@ i = 0
 
   5.times do
     need = Need.new(
-    title: Faker::Lorem.sentence(word_count: 3),
+    title: "We need " + NEED_CATEGORIES.sample,
     karma_points: rand(1..50),
     category: NEED_CATEGORIES.sample,
-    charity_id: charity.id
+    charity_id: charity.id,
+    description:Faker::Lorem.sentence(word_count: 10)
   )
   need.save!
   end
