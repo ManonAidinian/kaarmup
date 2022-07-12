@@ -20,7 +20,7 @@
   </div>
 
   <div class="mission">
-    <p>Our mission: <%= @charity.description %></p>
+    <p>Our mission: <%= @charity.description.truncate_words(68) %></p>
   </div>
 
 
