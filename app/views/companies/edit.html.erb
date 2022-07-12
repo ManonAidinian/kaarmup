@@ -1,12 +1,12 @@
 <div class="form-container">
 
-  <h2>Edit my charity:</h2>
-  <%= simple_form_for(@charity) do |f| %>
+  <h2>Edit my company:</h2>
+  <%= simple_form_for(@company) do |f| %>
       <%= f.input :name%>
       <%= f.input :description%>
       <%= f.input :location%>
       <%= f.input :photos, as: :file, input_html: { multiple: true} %>
-      <%= f.button :submit, "Edit charity"%>
+      <%= f.button :submit, "Edit company"%>
     <%end%>
 
 </div>

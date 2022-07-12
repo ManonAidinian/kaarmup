@@ -34,17 +34,19 @@ file = File.open(Rails.root.join("app/assets/images/nasi.jpg"))
 charity1.photos.attach(io: file, filename: "nasi.jpg", content_type: 'images/jpg')
 
 need1 = Need.new(
-  title: "Raw food donation",
+  title: "We need raw food donation",
   karma_points: 18,
   category: "Food",
+  description: "We need raw food like veggies and rice to cook meals for the most in need",
   charity_id: charity1.id
 )
 need1.save!
 
 need2 = Need.new(
-  title: "Kitchen supplies",
+  title: "We need kitchen supplies",
   karma_points: 5,
   category: "Supplies",
+  description: "We need kitchen supplies to help us prepare meals for the most in need",
   charity_id: charity1.id
 )
 need2.save!
@@ -93,7 +95,7 @@ i = 0
   5.times do
     need = Need.new(
     title: "We need " + NEED_CATEGORIES.sample,
-    karma_points: rand(1..50),
+    karma_points: rand(5..50),
     category: NEED_CATEGORIES.sample,
     charity_id: charity.id,
     description:Faker::Lorem.sentence(word_count: 10)

@@ -1,46 +1,63 @@
 
-  <div class="container">
+  <div class="dash-container">
 
     <div class="charity-dash-header row">
-      <div class="charity-dash-infos col-md-6">
-        <h4><%= current_user.charity.name%></h4>
-        <p>Our mission: <%= current_user.charity.description %></p>
-        <p>📍 <%= current_user.charity.location %></p>
-        <p><%= link_to "Edit charity", edit_charity_path(current_user.charity.id) %></p>
-        <%# <p> link_to "Delete charity", charity_path(current_user.charity.id), method: :delete, data: { confirm: "Are you sure?" }</p> %>
-      </div>
+
       <div class= "col-md-6">
         <% if current_user.charity.photos.attached? %>
-          <%= cl_image_tag current_user.charity.photos.first.key, class: "col-md-3"%>
+          <%= cl_image_tag current_user.charity.photos.first.key, class: "dash-card-img"%>
         <% else %>
-          <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "col-md-3" %>
+          <%= image_tag "https://res.cloudinary.com/dlh9sqt5e/image/upload/v1656474100/KAARMUP/placeholder_xiwzae.png", class: "dash-card-img" %>
         <% end %>
       </div>
+
+      <div class="charity-dash-infos col-md-4">
+        <p>My charity:</p>
+        <h2><%= current_user.charity.name%></h2>
+        <br>
+        <p>📍 <%= current_user.charity.location %></p>
+        <p>Our mission: <%= current_user.charity.description.truncate_words(68) %></p>
+        <p><%= link_to "Edit my charity", edit_charity_path(current_user.charity.id) %></p>
+        <%# <p> link_to "Delete charity", charity_path(current_user.charity.id), method: :delete, data: { confirm: "Are you sure?" }</p> %>
+      </div>
+
     </div>
 
-    <div class="charity-dash-needs row">
-      <h3>We need:</h3>
+    <div class="dash-buttons">
+      <%= link_to "Ongoing claims", "#", class: "btn btn-primary dash-button"%>
+      <%= link_to "Claims history", "#", class: "btn btn-primary dash-button"%>
+    </div>
+
+    <div class="charity-dash-needs">
+      <h3>Our needs:</h3>
+      <%= link_to "Add a need", new_charity_need_path(current_user.charity.id) %>
+
       <% current_user.charity.needs.each do |need| %>
-        <div class="col-md-4">
-          <p><strong><%= need.title %></strong></p>
-          <p>Description: <%= need.description %></p>
-        </div>
-        <div class="col-md-4">
-          <p>Category: #<%= need.category %></p>
-          <p>Get <%= need.karma_points %> Karma points</p>
-          <p>Need status: <%= need.status %></p>
-          <% if need.good_actions.any? %>
-            <% if need.status == "Claimed, waiting for approval" %>
-              <p><%= link_to "Approve", good_action_path(need.good_actions.first), method: :patch %>
+        <hr>
+        <div class="dash-need row">
+
+          <div class="dash-title-desc col-md-4">
+            <p><strong><%= need.title %></strong></p>
+            <p>Description: <%= need.description %></p>
+          </div>
+
+          <div class="dash-cat-stat col-md-4">
+            <p>Category: #<%= need.category %></p>
+            <p>Offer <%= need.karma_points %> Karma points</p>
+            <p>Need status: <%= need.status %></p>
+            <% if need.good_actions.any? %>
+              <% if need.status == "Claimed, waiting for approval" %>
+                <p><%= link_to "Approve", good_action_path(need.good_actions.first), method: :patch %></p>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="col-md-4">
-          <p><%= link_to "Edit", edit_need_path(need.id)%> |
-          <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
+          </div>
+
+          <div class="dash-km-claim col-md-4">
+            <p><%= link_to "Edit", edit_need_path(need.id)%> |
+            <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
+          </div>
         </div>
       <% end %>
-      <%= link_to "Add a need", new_charity_need_path(current_user.charity.id) %>
     </div>
 
   </div>
