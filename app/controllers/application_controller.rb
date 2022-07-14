@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def onboarded?
-    current_user.company.present? || current_user.charity.present?
+    @onboarded = current_user.company.present? || current_user.charity.present?
   end
 
   def check_user_onboarded
