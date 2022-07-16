@@ -7,22 +7,14 @@ class ClaimsController < ApplicationController
     @karma_points = @claim.need.karma_points
   end
 
-  def new
-    @claim = Claim.new
-    @need = Need.find(params[:need_id])
-  end
-
   def create
     @need = Need.find(params[:need_id])
     @company = current_user.company
     @claim = Claim.new(need_id: @need.id, company_id: @company.id)
-    @claim.status = "Waiting for approval"
+    @claim.status = "On process"
     @need.status = "Claimed and on process!"
-    if @claim.save! && @need.save!
-      redirect_to claim_path(claim.id)
-    else
-      render :new
-    end
+    @claim.save! && @need.save!
+    redirect_to claim_path(@claim.id)
   end
 
   def update
@@ -35,7 +27,7 @@ class ClaimsController < ApplicationController
     @company = @claim.company
     @company.total_karma_points += @need.karma_points
     @company.save!
-    redirect_to claim_path(claim.id)
+    redirect_to claim_path(@claim.id)
   end
 
   def destroy

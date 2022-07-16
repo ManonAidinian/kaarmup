@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :needs, only: [:new, :create]
   end
   resources :needs, only: [:edit, :update, :destroy] do
-    resources :claims, only: [:new, :create]
+    resources :claims, only: [:create]
   end
   resources :claims, only: [:show, :update, :destroy]
   resources :companies, only: [:new, :create, :edit, :update]

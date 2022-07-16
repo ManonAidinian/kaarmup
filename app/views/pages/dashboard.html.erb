@@ -7,11 +7,6 @@
     <% if current_user.user_type == "Company" && @onboarded %>
       <h3>My company:</h3>
       <%= render "companies/company_dashboard" %>
-      <h3>My good actions:</h3>
-      <% if current_user.company.claims.first.present? %>
-      <%= render "shared/claim" %>
-      <% end %>
-
 
     <% elsif current_user.user_type == "Charity" && @onboarded %>
       <h3>My charity:</h3>

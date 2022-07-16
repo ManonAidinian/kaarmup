@@ -29,10 +29,11 @@
     </div>
 
     <div class="charity-dash-needs">
-      <h3>Our needs:</h3>
+      <h3>Our current needs:</h3>
       <%= link_to "Add a need", new_charity_need_path(current_user.charity.id) %>
 
       <% current_user.charity.needs.each do |need| %>
+      <% unless need.status == "Solved" %>
         <hr>
         <div class="dash-need row">
 
@@ -52,6 +53,7 @@
             <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
           </div>
         </div>
+      <% end %>
       <% end %>
     </div>
 

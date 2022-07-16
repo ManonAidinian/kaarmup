@@ -29,9 +29,9 @@
     <h3>You can help us with:</h3>
 
     <% @charity.needs.each do |need| %>
+<% unless need.status == "Solved" %>
     <hr>
     <div class="need row">
-
       <div class="title-desc col-md-4">
         <p><strong><%= need.title %></strong></p>
         <p>Description: <%= need.description %></p>
@@ -44,10 +44,10 @@
 
       <div class="km-claim col-md-4">
         <p><strong>Get <%= need.karma_points %> Karma points</strong></p>
-        <%= link_to "Claim", new_need_claim(need.id), class: "btn btn-primary"%>
+        <%= link_to "Claim", need_claims_path(need.id), method: :post, class: "btn btn-primary"%>
       </div>
     </div>
-
+<% end %>
     <% end %>
   </div>
 
