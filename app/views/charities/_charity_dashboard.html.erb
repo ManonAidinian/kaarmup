@@ -45,11 +45,6 @@
             <p>Category: #<%= need.category %></p>
             <p>Offer <%= need.karma_points %> Karma points</p>
             <p>Need status: <%= need.status %></p>
-            <% if need.claims.any? %>
-              <% if need.status == "Claimed, waiting for approval" %>
-                <p><%= link_to "Approve", claim_path(need.claims.first), method: :patch %></p>
-              <% end %>
-            <% end %>
           </div>
 
           <div class="dash-km-claim col-md-4">

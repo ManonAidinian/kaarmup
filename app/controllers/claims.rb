@@ -1,48 +1,52 @@
 class ClaimsController < ApplicationController
   def show
-    @claims = Claim.find(params[:id])
+    @claim = Claim.find(params[:id])
+    @need = @claim.need
+    @company = @claim.company
+    @charity = @claim.need.charity
+    @karma_points = @claim.need.karma_points
   end
 
   def new
-    @claims = Claim.new
+    @claim = Claim.new
     @need = Need.find(params[:need_id])
   end
 
   def create
     @need = Need.find(params[:need_id])
-    @company = current_user.companies.first
-    @claims = Claim.new(need_id: @need.id, company_id: @company.id)
-    @claims.status = "Waiting for approval"
-    @need.status = "Claimed, waiting for approval"
-    if @claims.save! && @need.save!
-      redirect_to dashboard_path
+    @company = current_user.company
+    @claim = Claim.new(need_id: @need.id, company_id: @company.id)
+    @claim.status = "Waiting for approval"
+    @need.status = "Claimed and on process!"
+    if @claim.save! && @need.save!
+      redirect_to claim_path(claim.id)
     else
       render :new
     end
   end
 
   def update
-    @claims = Claim.find(params[:id])
-    @claims.status = "Approved and Rewarded"
-    @need = @claims.need
+    @claim = Claim.find(params[:id])
+    @claim.status = "Processed and Rewarded"
+    @need = @claim.need
     @need.status = "Solved"
-    @claims.save!
+    @claim.save!
     @need.save!
-    @company = @claims.company
+    @company = @claim.company
     @company.total_karma_points += @need.karma_points
     @company.save!
-    redirect_to dashboard_path
+    redirect_to claim_path(claim.id)
   end
 
   def destroy
-    @claims = Claim.find(params[:id])
-    @claims.destroy
+    @claim = Claim.find(params[:id])
+    @claim.destroy
     redirect_to dashboard_path
   end
 
   private
 
-  def claims_params
-    params.require(:claims).permit(:need_id, :company_id)
+  def claim_params
+    params.require(:claim).permit(:need_id, :company_id, :status)
   end
 end

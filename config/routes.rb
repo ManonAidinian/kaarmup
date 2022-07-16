@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :needs, only: [:edit, :update, :destroy] do
     resources :claims, only: [:new, :create]
   end
-  resources :claims, only: [:update, :destroy]
+  resources :claims, only: [:show, :update, :destroy]
   resources :companies, only: [:new, :create, :edit, :update]
   resources :users, only: [:update]
 
