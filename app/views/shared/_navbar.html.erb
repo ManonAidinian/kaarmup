@@ -10,10 +10,12 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "See all charities", charities_path, class: "nav-link" %>
           </li>
+
+        <% if user_signed_in? %>
 
           <li class="nav-item">
             <%= link_to "#{current_user.first_name} #{current_user.last_name}", dashboard_path, class: "nav-link" %>
