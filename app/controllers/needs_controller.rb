@@ -9,7 +9,7 @@ class NeedsController < ApplicationController
     @need.charity = Charity.find(params[:charity_id])
     @charity = @need.charity
     if @need.save
-      redirect_to charity_path(@charity.id)
+      redirect_to dashboard_path
     else
       render :new
     end

@@ -6,14 +6,18 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    # @claims = Claim.where("claim.company = current_user.company").or("claim.need.charity = current_user.charity")
+    @claims = Claim.all.select{|claim| (claim.company == current_user.company) || (claim.need.charity == current_user.charity)}
   end
 
   def claims
-    @claims = Claim.all
+    # @claims = Claim.where("claim.company = current_user.company").or("claim.need.charity = current_user.charity")
+    @claims = Claim.all.select{|claim| (claim.company == current_user.company) || (claim.need.charity == current_user.charity)}
   end
 
   def history
-    @claims = Claim.all
+    # @claims = Claim.where("claim.company = current_user.company OR claim.need.charity = current_user.charity")
+    @claims = Claim.all.select{|claim| (claim.company == current_user.company) || (claim.need.charity == current_user.charity)}
   end
 
 end

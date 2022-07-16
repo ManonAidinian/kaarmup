@@ -5,25 +5,51 @@
   <div class="tabs-box">
 
     <% if current_user.user_type == "Company" && @onboarded %>
-      <h3>My company:</h3>
-      <%= render "companies/company_dashboard" %>
+      <div class="dashboard-card">
+        <h3>My company:</h3>
+        <hr>
+        <%= render "companies/company_dashboard" %>
+      </div>
+      <div class="dashboard-card">
+        <h3>My ongoing Claims:</h3>
+        <hr>
+        <%= render "claims" %>
+      </div>
+      <div class="dashboard-card">
+        <h3>My karma points:</h3>
+        <hr>
+        <p>You have collected <strong><%= current_user.company.total_karma_points %> karma points!</strong></p>
+      </div>
 
     <% elsif current_user.user_type == "Charity" && @onboarded %>
-      <h3>My charity:</h3>
-      <%= render "charities/charity_dashboard" %>
-
+      <div class="dashboard-card">
+        <h3>My charity:</h3>
+        <hr>
+        <%= render "charities/charity_dashboard" %>
+      </div>
+      <div class="dashboard-card">
+        <h3>My ongoing Claims:</h3>
+        <hr>
+        <%= render "claims" %>
+      </div>
+      <div class="dashboard-card">
+        <h3>Our current needs:</h3>
+        <hr>
+        <%= render "needs" %>
+      </div>
 
     <%else %>
-      <h3>Register your <%= current_user.user_type %> to start connecting with like minded leaders!</h3>
-      <% if current_user.user_type == "Company"%>
-        <%= link_to "Register my company", new_company_path %>
-      <% elsif current_user.user_type == "Charity"%>
-        <%= link_to "Register my charity", new_charity_path %>
-      <% end %>
-
+      <div class="dashboard-card">
+        <h3>Register your <%= current_user.user_type %> to start connecting with like minded leaders!</h3>
+        <hr>
+        <% if current_user.user_type == "Company"%>
+          <%= link_to "Register my company", new_company_path %>
+        <% elsif current_user.user_type == "Charity"%>
+          <%= link_to "Register my charity", new_charity_path %>
+        <% end %>
+      </div>
 
     <% end %>
-
 
   </div>
 </div>
