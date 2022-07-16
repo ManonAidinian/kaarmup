@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :needs, only: [:new, :create]
   end
   resources :needs, only: [:edit, :update, :destroy] do
-    resources :good_actions, only: [:new, :create]
+    resources :claims, only: [:new, :create]
   end
-  resources :good_actions, only: [:update, :destroy]
+  resources :claims, only: [:update, :destroy]
   resources :companies, only: [:new, :create, :edit, :update]
   resources :users, only: [:update]
 

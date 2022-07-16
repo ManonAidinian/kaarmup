@@ -5,4 +5,4 @@
 <p>Hi! I am <%= current_user.first_name %> from "<%= current_user.companies.first.name %>"</p>
 <p>I'd like to anser your need "<%= @need.title %>"
 
-<%= link_to "Confirm request", need_good_actions_path(@need.id), method: :post %>
+<%= link_to "Confirm request", need_claims_path(@need.id), method: :post %>

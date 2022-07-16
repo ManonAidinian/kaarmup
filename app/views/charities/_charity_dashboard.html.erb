@@ -45,9 +45,9 @@
             <p>Category: #<%= need.category %></p>
             <p>Offer <%= need.karma_points %> Karma points</p>
             <p>Need status: <%= need.status %></p>
-            <% if need.good_actions.any? %>
+            <% if need.claims.any? %>
               <% if need.status == "Claimed, waiting for approval" %>
-                <p><%= link_to "Approve", good_action_path(need.good_actions.first), method: :patch %></p>
+                <p><%= link_to "Approve", claim_path(need.claims.first), method: :patch %></p>
               <% end %>
             <% end %>
           </div>

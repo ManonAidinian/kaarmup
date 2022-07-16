@@ -8,7 +8,7 @@
       <h3>My company:</h3>
       <%= render "companies/company_dashboard" %>
       <h3>My good actions:</h3>
-      <% if current_user.company.good_actions.first.present? %>
+      <% if current_user.company.claims.first.present? %>
       <%= render "shared/claim" %>
       <% end %>
 
