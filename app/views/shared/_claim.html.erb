@@ -1,9 +1,9 @@
 
-<% @good_actions.each do |good_action| %>
-  <p>Good action ID: <%= good_action.id %></p>
-  <p>For the charity: <%= good_action.need.charity.name %></p>
-  <p>Answering the need: <%= good_action.need.title %></p>
-  <p>Karma points to win: <%= good_action.need.karma_points %> KM</p>
-  <p>Claim status: <%= good_action.status %> </p>
-  <p> <%= link_to "Cancel claim", good_action_path(good_action), method: :delete, data: { confirm: "Are you sure?" }%> </p>
+<% @claims.each do |claim| %>
+  <p>Good action ID: <%= claim.id %></p>
+  <p>For the charity: <%= claim.need.charity.name %></p>
+  <p>Answering the need: <%= claim.need.title %></p>
+  <p>Karma points to win: <%= claim.need.karma_points %> KM</p>
+  <p>Claim status: <%= claim.status %> </p>
+  <p> <%= link_to "Cancel claim", claim_path(claim), method: :delete, data: { confirm: "Are you sure?" }%> </p>
 <% end %>

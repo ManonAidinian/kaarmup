@@ -1,9 +1,10 @@
 class Need < ApplicationRecord
   belongs_to :charity
-  has_many :good_actions
-  has_many :companies, through: :good_actions, dependent: :destroy
+  has_many :claims
+  has_many :companies, through: :claims, dependent: :destroy
 
   validates :title, :category, :karma_points, :status, presence: true
+  validates :karma_points, inclusion: { in: (5..50), message: " awarded must be bewteen 5 and 50" }
 
   has_many_attached :photos
 end

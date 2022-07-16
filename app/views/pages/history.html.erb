@@ -1,0 +1,7 @@
+<h1>Claims history:</h1>
+
+<% @claims.each do |claim| %>
+  <% if claim.status = "Processed and Rewarded" %>
+    <p>Claim # <%= claim.id %> - <%= claim.need.title %></p>
+  <% end %>
+<% end %>

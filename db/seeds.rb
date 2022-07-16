@@ -13,7 +13,7 @@ User.destroy_all
 Charity.destroy_all
 Company.destroy_all
 Need.destroy_all
-GoodAction.destroy_all
+Claim.destroy_all
 
 NEED_CATEGORIES = ["Food Donation", "Raw material", "School supplies", "Medical supplies", "Workforce", "IT Service", "Legal service", "Climate action", "Ecology", "Recycling", "Education", "Animal rescue", "Vehicule", "Premise/Room", "Textile", "Donation", "Household supplies", "Consulting", "Other"]
 

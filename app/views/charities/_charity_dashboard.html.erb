@@ -24,15 +24,16 @@
     </div>
 
     <div class="dash-buttons">
-      <%= link_to "Ongoing claims", "#", class: "btn btn-primary dash-button"%>
-      <%= link_to "Claims history", "#", class: "btn btn-primary dash-button"%>
+      <%= link_to "Ongoing claims", claims_path, class: "btn btn-primary dash-button"%>
+      <%= link_to "Claims history", history_path, class: "btn btn-primary dash-button"%>
     </div>
 
     <div class="charity-dash-needs">
-      <h3>Our needs:</h3>
+      <h3>Our current needs:</h3>
       <%= link_to "Add a need", new_charity_need_path(current_user.charity.id) %>
 
       <% current_user.charity.needs.each do |need| %>
+      <% unless need.status == "Solved" %>
         <hr>
         <div class="dash-need row">
 
@@ -45,11 +46,6 @@
             <p>Category: #<%= need.category %></p>
             <p>Offer <%= need.karma_points %> Karma points</p>
             <p>Need status: <%= need.status %></p>
-            <% if need.good_actions.any? %>
-              <% if need.status == "Claimed, waiting for approval" %>
-                <p><%= link_to "Approve", good_action_path(need.good_actions.first), method: :patch %></p>
-              <% end %>
-            <% end %>
           </div>
 
           <div class="dash-km-claim col-md-4">
@@ -57,6 +53,7 @@
             <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
           </div>
         </div>
+      <% end %>
       <% end %>
     </div>
 

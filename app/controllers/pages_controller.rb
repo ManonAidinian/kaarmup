@@ -6,9 +6,14 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # if current_user.user_type == "Company"
-    #   @good_actions = GoodAction.where(company_id: current_user.companies.first.id)
-    # end
+  end
+
+  def claims
+    @claims = Claim.all
+  end
+
+  def history
+    @claims = Claim.all
   end
 
 end

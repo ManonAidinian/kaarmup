@@ -1,0 +1,29 @@
+<%= link_to "Back", :back %>
+
+<h1>Claim #<%= @claim.id %> </h1>
+<h3>Status : <%= @claim.status %></h3>
+
+<h4>Step 1: </h4>
+<p>Status : <%= @claim.status %></p>
+<p>Hi! I am <%= @company.user.first_name %> from "<%= @company.name %>"</p>
+<p>I'd like to anser your need "<%= @need.title %>"</p>
+
+<h4>Step 2: </h4>
+<p>Status : <%= @claim.status %></p>
+<p>Hi! I am <%= @charity.user.first_name %> from "<%= @charity.name %>"</p>
+<p>Thank you for your support! </p>
+<p>Let's start chatting and see how you can help us. </p>
+
+
+<h4>Step 3: </h4>
+<p>Status : <%= @claim.status %></p>
+<% if current_user.user_type == "Charity" %>
+  <p><%= link_to "Approve", claim_path(@claim.id), method: :patch %></p>
+<% else %>
+  <p>Please kindly wait for my approval</p>
+<% end %>
+
+<h4>Step 4: </h4>
+<p>Status : <%= @claim.status %></p>
+<p>All approved, here are your <%= @need.karma_points %> Karma points!</p>
+<p>Thank you!</p>
