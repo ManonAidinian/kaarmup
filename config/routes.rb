@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resources :needs, only: [:edit, :update, :destroy] do
     resources :claims, only: [:create]
   end
-  resources :claims, only: [:show, :update, :destroy]
+  resources :claims, only: [:show, :destroy]do
+    patch 'approval', to: 'claims#approve'
+    patch 'closing', to: 'claims#close'
+  end
+
   resources :companies, only: [:new, :create, :edit, :update]
   resources :users, only: [:update]
 

@@ -1,7 +1,7 @@
 <div class="charity-dash-needs">
 
       <% current_user.charity.needs.each do |need| %>
-      <% unless need.status == "Solved" %>
+      <% unless need.status == "Solved" || need.status == "Claimed"%>
         <div class="dash-need row">
 
           <div class="dash-title-desc col-md-4">
