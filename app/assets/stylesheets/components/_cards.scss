@@ -109,12 +109,6 @@
   flex-grow: 1;
 }
 
-// .dash-container {
-//   max-width: 1000px;
-//   margin: 50px auto;
-//   flex-grow: 1;
-// }
-
 .charity-dash-header {
   display: flex;
   align-items: center;
@@ -150,22 +144,6 @@
   }
 }
 
-// .charity-dash-needs {
-//   background-color: white;
-//   padding: 25px;
-//   border: 1px solid rgb(225, 225, 225);
-//   border-radius: 9px;
-//   margin: 10px;
-//   margin-bottom: 50px;
-//   h3 {
-//     margin-bottom: 25px;
-//   }
-// }
-
-// .dash-need {
-//   margin-top: 25px;
-// }
-
 .dash-cat-stat {
   text-align: center;
   margin: auto auto;
@@ -184,4 +162,17 @@
 .dash-button {
   margin-left: 50px;
   margin-right: 50px;
+}
+
+
+// --------------------claim card----------------
+
+
+
+.claim-header, .claim-steps{
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 9px;
+  background-color: white;
+  padding: 25px;
+  margin: 10px;
 }

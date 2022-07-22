@@ -1,35 +1,60 @@
 <%= link_to "Back", :back %>
 
-<h1>Claim ID #<%= @claim.id %> </h1>
-<h3>Need: <%= @need.title %></h3>
-<% if current_user.user_type == "Company" %>
-<h3>For the charity : <%= @need.charity.name %></h3>
-<% end %>
-<h3>Status : <%= @claim.status %></h3>
-<h3>Created on: <%= @claim.created_at.strftime("%A, %d %b %Y %l:%M %p") %></h3>
+<div class="container">
+  <div class="claim-header">
+    <h1>Claim ID #<%= @claim.id %> </h1>
+    <h3>Need: <%= @need.title %></h3>
+    <% if current_user.user_type == "Company" %>
+    <h3>For the charity : <%= @need.charity.name %></h3>
+    <% else %>
+    <h3>From the company : <%= @claim.company.name %></h3>
+    <% end %>
+    <h3>Status : <%= @claim.status %></h3>
+    <h3>Created on: <%= @claim.created_at.strftime("%A, %d %b %Y %l:%M %p") %></h3>
+  </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="claim-steps">
+        <h4>Step 1: </h4>
+        <p>Hi! I am <%= @company.user.first_name %> from "<%= @company.name %>"</p>
+        <p>I'd like to help you with your need!</p>
+        <% if current_user.user_type == "Charity" %>
+          <p><%= link_to "Approve", claim_approval_path(@claim.id), method: :patch %></p>
+        <% else %>
+          <p><em>Please kindly wait for approval!</em></p>
+        <% end %>
 
+        <br>
 
-<h4 id="step-1">Step 1: </h4>
-<p>Status : <%= @claim.status %></p>
-<p>Hi! I am <%= @company.user.first_name %> from "<%= @company.name %>"</p>
-<p>I'd like to help you with your need!</p>
+        <h4>Step 2: </h4>
+        <p>Hi! I am <%= @charity.user.first_name %> from "<%= @charity.name %>"</p>
+        <p>Thank you for your support! </p>
+        <p>We have approved your claim request:</p>
+        <p>Let's start chatting!</p>
 
-<h4>Step 2: </h4>
-<p>Status : <%= @claim.status %></p>
-<p>Hi! I am <%= @charity.user.first_name %> from "<%= @charity.name %>"</p>
-<p>Thank you for your support! </p>
-<p>Let's start chatting and see how you can help us. </p>
+        <br>
 
-<h4>Step 3: </h4>
-<p>Status : <%= @claim.status %></p>
-<% if current_user.user_type == "Charity" %>
-  <p><%= link_to "Approve", claim_path(@claim.id), method: :patch %></p>
-<% else %>
-  <p>Please kindly wait for my approval</p>
-<% end %>
+        <h4>Step 3: </h4>
+        <% if current_user.user_type == "Charity" %>
+          <p>When the claim has been successfully completed, please close the claim:</p>
+          <p><%= link_to "Close", claim_closing_path(@claim.id), method: :patch %></p>
+        <% else %>
+          <p><em>Please kindly wait for claim closing to collect your kaarma points</em></p>
+        <% end %>
 
-<h4>Step 4: </h4>
-<p>Status : <%= @claim.status %></p>
-<p>All approved, here are your <%= @need.karma_points %> Karma points!</p>
-<p>Thank you!</p>
+        <br>
+
+        <h4>Step 4: </h4>
+        <p>Congratulations to you both! You have made the world a better place: Here are your <%= @need.karma_points %> Karma points!</p>
+        <p>Thank you!</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="claim-steps">
+        <p>Chat :</p>
+      </div>
+    </div>
+  </div>
+</div>

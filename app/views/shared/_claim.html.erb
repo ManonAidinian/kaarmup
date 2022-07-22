@@ -1,9 +1,0 @@
-
-<% @claims.each do |claim| %>
-  <p>Good action ID: <%= claim.id %></p>
-  <p>For the charity: <%= claim.need.charity.name %></p>
-  <p>Answering the need: <%= claim.need.title %></p>
-  <p>Karma points to win: <%= claim.need.karma_points %> KM</p>
-  <p>Claim status: <%= claim.status %> </p>
-  <p> <%= link_to "Cancel claim", claim_path(claim), method: :delete, data: { confirm: "Are you sure?" }%> </p>
-<% end %>
