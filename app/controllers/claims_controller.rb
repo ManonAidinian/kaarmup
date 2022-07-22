@@ -1,4 +1,7 @@
 class ClaimsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :check_user_onboarded
+
   def show
     @claim = Claim.find(params[:id])
     @need = @claim.need

@@ -19,14 +19,16 @@
   }
 }
 
-.head-search {
+.search-container {
   max-width: 900px;
-  text-align: center;
   margin: 50px auto;
+}
+
+#search-bar {
   display: flex;
 }
 
-.search-container {
+.form-control {
   flex-grow: 1;
   margin-right: 25px;
 }

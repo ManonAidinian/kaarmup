@@ -3,7 +3,7 @@
 <%else %>
   <% @claims.each do |claim| %>
     <% if claim.status == "On process" %>
-      <p> <%= link_to "Claim ##{claim.id} - #{claim.need.title} > status: #{claim.status}", claim_path(claim.id) %> </p>
+      <p> <%= link_to "Claim ID ##{claim.id} - #{claim.need.title} > status: #{claim.status}", claim_path(claim.id) %> </p>
     <% end %>
   <% end %>
 <% end %>

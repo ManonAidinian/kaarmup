@@ -51,6 +51,33 @@ need2 = Need.new(
 )
 need2.save!
 
+need3 = Need.new(
+  title: "We need storage",
+  karma_points: 32,
+  category: "Storage",
+  description: "We need storage to store our stuff",
+  charity_id: charity1.id
+)
+need3.save!
+
+need4 = Need.new(
+  title: "We need vehicule",
+  karma_points: 33,
+  category: "Vehicule",
+  description: "We need vehicule to deliver the food",
+  charity_id: charity1.id
+)
+need4.save!
+
+need5 = Need.new(
+  title: "We need a new website",
+  karma_points: 50,
+  category: " Website",
+  description: "We need a new website for the charity",
+  charity_id: charity1.id
+)
+need5.save!
+
 company_user = User.create(email: "ma-cie@mail.com", password: "121212",first_name: "Manon", last_name: "Aidinian", user_type: "Company")
 file = File.open(Rails.root.join("app/assets/images/manon-avatar.jpg"))
 company_user.photo.attach(io: file, filename: "manon-avatar.jpg", content_type: 'images/jpg')
