@@ -1,3 +1,5 @@
+require 'date'
+
 class ClaimsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_user_onboarded
@@ -16,6 +18,7 @@ class ClaimsController < ApplicationController
     @claim = Claim.new(need_id: @need.id, company_id: @company.id)
     @claim.status = "Waiting for approval"
     @need.status = "Claimed and waiting for approval"
+    @claim.created_at = @claim.created_at
     @claim.save! && @need.save!
     redirect_to claim_path(@claim.id)
   end
@@ -24,6 +27,7 @@ class ClaimsController < ApplicationController
     @claim = Claim.find(params[:claim_id])
     @claim.status = "Approved"
     @need = @claim.need
+    @claim.approved_at = DateTime.now
     @claim.save!
     @need.status = "Claimed"
     @need.save!
@@ -36,6 +40,7 @@ class ClaimsController < ApplicationController
     @claim.status = "Processed and Rewarded"
     @need = @claim.need
     @need.status = "Solved"
+    @claim.closed_at = DateTime.now
     @claim.save!
     @need.save!
     @company = @claim.company

@@ -6,24 +6,14 @@
       <p>You have new claim(s) pending and waiting for approval:</p>
       <p> <%= link_to "Claim ID ##{claim.id} - #{claim.need.title}", claim_path(claim.id) %> </p>
       <p>Status: <%= claim.status %></p>
-      <% if current_user.user_type == "Charity" %>
-        <p><%= link_to "Approve", claim_approval_path(claim.id), method: :patch %></p>
-      <% else %>
-        <p><em>Please kindly wait for approval!</em></p>
-      <% end %>
-      <p><%= link_to "Chat", "#"%></p>
 
+      <hr>
 
     <% elsif claim.status == "Approved" %>
       <p>Here is/are your ongoing claim(s):</p>
       <p> <%= link_to "Claim ID ##{claim.id} - #{claim.need.title}", claim_path(claim.id) %> </p>
       <p>Status: <%= claim.status %></p>
-      <% if current_user.user_type == "Charity" %>
-        <p><%= link_to "Close", claim_closing_path(claim.id), method: :patch %></p>
-      <% else %>
-        <p><em>Please kindly wait for the claim to be closed and collect your kaarma points</em></p>
-      <% end %>
-      <p><%= link_to "Chat", "#"%></p>
+      <hr>
     <% end %>
   <% end %>
 <% end %>
