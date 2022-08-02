@@ -1,3 +1,5 @@
+require 'date'
+
 class ClaimsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_user_onboarded
@@ -36,6 +38,7 @@ class ClaimsController < ApplicationController
     @claim.status = "Processed and Rewarded"
     @need = @claim.need
     @need.status = "Solved"
+    @closing_time = DateTime.now.strftime(" %b %e, %Y at %l:%M%p")
     @claim.save!
     @need.save!
     @company = @claim.company
