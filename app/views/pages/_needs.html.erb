@@ -4,18 +4,16 @@
       <% unless need.status == "Solved" || need.status == "Claimed"%>
         <div class="dash-need row">
 
-          <div class="dash-title-desc col-md-4">
+          <div class="dash-title-desc col-md-7">
             <p><strong><%= need.title %></strong></p>
             <p>Description: <%= need.description %></p>
-          </div>
-
-          <div class="dash-cat-stat col-md-4">
             <p>Category: #<%= need.category %></p>
-            <p>Offer <%= need.karma_points %> Karma points</p>
             <p>Need status: <%= need.status %></p>
           </div>
 
+
           <div class="dash-km-claim col-md-4">
+            <p>Offer <%= need.karma_points %> Karma points</p>
             <p><%= link_to "Edit", edit_need_path(need.id)%> |
             <%= link_to "Delete", need_path(need.id), method: :delete, data: { confirm: "Are you sure?" }%></p>
           </div>

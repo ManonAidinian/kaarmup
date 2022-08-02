@@ -32,14 +32,10 @@
 <% unless need.status == "Solved" %>
     <hr>
     <div class="need row">
-      <div class="title-desc col-md-4">
+      <div class="title-desc col-md-6">
         <p><strong><%= need.title %></strong></p>
         <p>Description: <%= need.description %></p>
-      </div>
-
-      <div class="cat-stat col-md-4">
         <p>Category: #<%= need.category %></p>
-        <p>Need status: <%= need.status %> </p>
       </div>
 
       <div class="km-claim col-md-4">
