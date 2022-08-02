@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'claim_show', 'data-turbolinks-track': 'reload', defer: true %>
+
 <%= link_to "Back", :back %>
 
 <div class="container">
@@ -14,40 +16,49 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6"
       <div class="claim-steps">
-        <h4>Step 1: </h4>
-        <p>Hi! I am <%= @company.user.first_name %> from "<%= @company.name %>"</p>
-        <p>I'd like to help you with your need!</p>
-        <% if current_user.user_type == "Charity" %>
-          <p><%= link_to "Approve", claim_approval_path(@claim.id), method: :patch %></p>
-        <% else %>
-          <p><em>Please kindly wait for approval!</em></p>
-        <% end %>
+
+        <div id="step-1">
+          <h4>Step 1: </h4>
+          <p>Hi! I am <%= @company.user.first_name %> from "<%= @company.name %>"</p>
+          <p>I'd like to help you with your need!</p>
+          <% if current_user.user_type == "Charity" %>
+            <p><%= link_to "Approve", claim_approval_path(@claim.id), method: :patch %></p>
+          <% else %>
+            <p><em>Please kindly wait for approval!</em></p>
+          <% end %>
+        </div>
 
         <br>
 
-        <h4>Step 2: </h4>
-        <p>Hi! I am <%= @charity.user.first_name %> from "<%= @charity.name %>"</p>
-        <p>Thank you for your support! </p>
-        <p>We have approved your claim request:</p>
-        <p>Let's start chatting!</p>
+        <div id="step-2">
+          <h4>Step 2: </h4>
+          <p>Hi! I am <%= @charity.user.first_name %> from "<%= @charity.name %>"</p>
+          <p>Thank you for your support! </p>
+          <p>We have approved your claim request:</p>
+          <p>Let's start chatting!</p>
+        </div>
 
         <br>
 
-        <h4>Step 3: </h4>
-        <% if current_user.user_type == "Charity" %>
-          <p>When the claim has been successfully completed, please close the claim:</p>
-          <p><%= link_to "Close", claim_closing_path(@claim.id), method: :patch %></p>
-        <% else %>
-          <p><em>Please kindly wait for claim closing to collect your kaarma points</em></p>
-        <% end %>
+        <div id="step-3">
+          <h4>Step 3: </h4>
+          <% if current_user.user_type == "Charity" %>
+            <p>When the claim has been successfully completed, please close the claim:</p>
+            <p><%= link_to "Close", claim_closing_path(@claim.id), method: :patch %></p>
+          <% else %>
+            <p><em>Please kindly wait for claim closing to collect your kaarma points</em></p>
+          <% end %>
+        </div>
 
         <br>
+        <div id="step-4">
+          <h4>Step 4: </h4>
+          <p>Congratulations to you both! You have made the world a better place: Here are your <%= @need.karma_points %> Karma points!</p>
+          <p>Thank you!</p>
+        </div>
 
-        <h4>Step 4: </h4>
-        <p>Congratulations to you both! You have made the world a better place: Here are your <%= @need.karma_points %> Karma points!</p>
-        <p>Thank you!</p>
       </div>
     </div>
 
@@ -58,3 +69,5 @@
     </div>
   </div>
 </div>
+
+<script></script>
