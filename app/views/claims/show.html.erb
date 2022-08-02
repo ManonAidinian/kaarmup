@@ -19,7 +19,7 @@
 
         <% if @claim.status == "Waiting for approval" || @claim.status == "Approved" || @claim.status == "Processed and Rewarded" %>
           <div id="step-1">
-            <h4>Step 1: <%= @claim.created_at.strftime(" %b %e, %Y at %l:%M%p")%></h4>
+            <h4>Step 1: <%= @claim.created_at.strftime(" %b %e, %Y at %l:%M%p") %></h4>
             <p>Hi! I am <%= @company.user.first_name %> from "<%= @company.name %>"</p>
             <p>I'd like to help you with your need!</p>
             <% if current_user.user_type == "Charity" %>
@@ -34,7 +34,7 @@
 
         <% if @claim.status == "Approved" || @claim.status == "Processed and Rewarded" %>
           <div id="step-2">
-            <h4>Step 2: <%= @claim.updated_at.strftime(" %b %e, %Y at %l:%M%p")%></h4>
+            <h4>Step 2: <%= @claim.approved_at.strftime(" %b %e, %Y at %l:%M%p") %></h4>
             <p>Hi! I am <%= @charity.user.first_name %> from "<%= @charity.name %>"</p>
             <p>Thank you for your support! </p>
             <p>We have approved your claim request:</p>
@@ -58,7 +58,7 @@
 
         <% if @claim.status == "Processed and Rewarded" %>
           <div id="step-4">
-            <h4>Step 4: <%= @closing_time%> </h4>
+            <h4>Step 4: <%= @claim.closed_at.strftime(" %b %e, %Y at %l:%M%p") %> </h4>
             <p>Congratulations to you both! You have made the world a better place: Here are your <%= @need.karma_points %> Karma points!</p>
             <p>Thank you!</p>
           </div>
