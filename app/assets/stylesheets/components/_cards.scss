@@ -32,6 +32,7 @@
 }
 
 .card-link {
+  margin: 0px !important;
   a {
     text-decoration: none;
   }
@@ -58,7 +59,6 @@
   width: 500px;
   height: 400px;
   padding: 25px;
-  margin: 10px;
 }
 
 .charity-card-img {
@@ -67,7 +67,8 @@
   object-fit: cover;
   border-radius: 9px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin: 10px;
+  margin: 50px 50px 0px 0px;
+
 }
 
 .mission {
@@ -91,13 +92,10 @@
   margin-top: 25px;
 }
 
-.cat-stat {
-  text-align: center;
-  margin: auto auto;
-}
 .km-claim {
   text-align: center;
-  margin: auto auto;
+  margin-left: auto;
+  margin-block: auto;
 }
 
 
@@ -144,13 +142,10 @@
   }
 }
 
-.dash-cat-stat {
-  text-align: center;
-  margin: auto auto;
-}
 .dash-km-claim {
   text-align: center;
-  margin: auto auto;
+  margin-left: auto;
+  margin-block: auto;
 }
 
 .dash-buttons {

@@ -1,14 +1,17 @@
 .sidebar {
+  max-width: 20vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
   background-color: $bg;
-  height: 100vh;
+  max-height: 100vh;
   padding: 25px;
   border-radius: 9px;
   margin: 5px 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: sticky;
+  top: 0;
 }
 
 .tabs-box {
