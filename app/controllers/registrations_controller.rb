@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :user_type, :photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :photo])
   end
 
   def after_sign_up_path_for(resource)
@@ -13,5 +14,10 @@ class RegistrationsController < Devise::RegistrationsController
     elsif current_user.user_type == "Company"
       new_company_path
     end
+  end
+
+  def after_update_path_for(resource)
+    flash[:notice] = "Account succesfully updated"
+    dashboard_path
   end
 end
