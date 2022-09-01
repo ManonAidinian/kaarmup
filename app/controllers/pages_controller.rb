@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
-  # skip_before_action :check_user_onboarded, only: [:home, :dashboard]
-  skip_before_action :check_user_onboarded, only: :home
+  skip_before_action :check_user_onboarded, only: [:home, :dashboard]
+  before_action :onboarded?, only: [:dashboard]
+  # skip_before_action :check_user_onboarded, only: :home
 
   def home
   end
