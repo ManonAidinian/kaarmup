@@ -1,8 +1,6 @@
 require 'date'
 
 class ClaimsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_user_onboarded
 
   def show
     @claim = Claim.find(params[:id])
@@ -13,14 +11,20 @@ class ClaimsController < ApplicationController
   end
 
   def create
-    @need = Need.find(params[:need_id])
-    @company = current_user.company
-    @claim = Claim.new(need_id: @need.id, company_id: @company.id)
-    @claim.status = "Waiting for approval"
-    @need.status = "Claimed and waiting for approval"
-    @claim.created_at = @claim.created_at
-    @claim.save! && @need.save!
-    redirect_to claim_path(@claim.id)
+    if current_user.user_type == 'Charity'
+      redirect_to request.referrer
+      flash[:alert] = "You need to be registered as a company to claim a need"
+      return
+    else
+      @need = Need.find(params[:need_id])
+      @company = current_user.company
+      @claim = Claim.new(need_id: @need.id, company_id: @company.id)
+      @claim.status = "Waiting for approval"
+      @need.status = "Claimed and waiting for approval"
+      @claim.created_at = @claim.created_at
+      @claim.save! && @need.save!
+      redirect_to claim_path(@claim.id)
+    end
   end
 
   def approve

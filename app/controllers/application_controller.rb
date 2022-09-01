@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
-  before_action :check_user_onboarded
   before_action :authenticate_user!
+  before_action :check_user_onboarded
 
   def onboarded?
     @onboarded = current_user.company.present? || current_user.charity.present?
   end
 
   def check_user_onboarded
-    return unless onboarded?
+    # return unless onboarded?
 
-    return if devise_controller?
+    # return if devise_controller?
 
     if !onboarded?
       if current_user.user_type == "Company"
