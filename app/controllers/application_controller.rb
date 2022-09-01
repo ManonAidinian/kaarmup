@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user_onboarded
-    # return unless onboarded?
+    return if onboarded?
 
-    # return if devise_controller?
+    return if devise_controller?
 
     if !onboarded?
       if current_user.user_type == "Company"
@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
         redirect_to new_charity_path
       end
     end
+
   end
 
 end
